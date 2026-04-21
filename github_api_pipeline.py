@@ -31,16 +31,27 @@ SILVER_SQL_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'silv
 # ──────────────────────────────────────────────
 # 1. EXTRACT — Pull trending repos from GitHub
 # ──────────────────────────────────────────────
-def extract_repos():
-    """Fetch the top 15 most-starred Python repos from the GitHub API."""
+def extract_repos(days_back=90, min_stars=50):
+    """Fetch the top 15 trending Python repos created in the last N days."""
 
-    api_url = "https://api.github.com/search/repositories?q=language:python&sort=stars&order=desc"
+    from datetime import timedelta
+    cutoff_date = (datetime.now(timezone.utc) - timedelta(days=days_back)).strftime('%Y-%m-%d')
+
+    query = f"language:python created:>{cutoff_date} stars:>{min_stars}"
+    api_url = f"https://api.github.com/search/repositories?q={query}&sort=stars&order=desc"
+
+    print(f"🔍 Searching for Python repos created after {cutoff_date} with >{min_stars} stars...")
+
     response = requests.get(api_url)
     response.raise_for_status()
     data = response.json()
 
     clean_repos = []
     for repo in data['items'][:15]:
+        # Calculate age in days for context
+        created = datetime.fromisoformat(repo['created_at'].replace('Z', '+00:00'))
+        age_days = (datetime.now(timezone.utc) - created).days
+
         row = {
             'Repository_Name': repo['name'],
             'Description': repo.get('description', 'No description'),
@@ -52,11 +63,12 @@ def extract_repos():
             'Created_Date': repo['created_at'],
             'Last_Updated': repo['updated_at'],
             'Open_Issues': repo.get('open_issues_count', 0),
+            'Age_Days': age_days,
         }
         clean_repos.append(row)
 
     df = pd.DataFrame(clean_repos)
-    print(f"✅ Extracted {len(df)} repos from GitHub API")
+    print(f"✅ Extracted {len(df)} trending repos (created in last {days_back} days)")
     return df
 
 
@@ -113,14 +125,19 @@ def analyze_with_ai(df):
 - Stars: {repo['Stars']:,} | Forks: {repo['Forks']:,} | Open Issues: {repo['Open_Issues']}
 - Language: {repo['Language']} | Topics: {repo['Topics']}
 - Created: {repo['Created_Date'][:10]} | Last Updated: {repo['Last_Updated'][:10]}
+- Age: {repo['Age_Days']} days old
 """
 
-    prompt = f"""You are a senior developer and tech analyst. Analyze these trending GitHub repositories.
+    prompt = f"""You are a senior developer and tech analyst. Analyze these NEWLY CREATED, fast-rising GitHub repositories.
+
+These repos were all created in the last 90 days — they are emerging projects gaining rapid traction.
+Pay attention to how many stars they've gained relative to their age.
 
 For EACH repo, provide:
 1. **Summary** (2-3 sentences): What does this project do? Who is it for?
 2. **Verdict**: Is this genuinely innovative, a solid utility, or just riding hype? Be honest and specific.
-3. **Signal Rating**: FIRE (genuinely exciting/innovative) | SOLID (solid/useful) | HYPE (hype wave)
+3. **Signal Rating**: FIRE (genuinely exciting/innovative) | SOLID (solid/useful) | HYPE (mostly riding a trend)
+4. **Growth Note** (1 sentence): How impressive is the star growth given the repo's age?
 
 Be concise, opinionated, and insightful. Don't just repeat the description — add real analysis.
 
@@ -128,7 +145,7 @@ Here are the repos:
 {repos_context}
 
 Format your response as a JSON array with objects containing these keys:
-"repo_name", "summary", "verdict", "signal_rating"
+"repo_name", "summary", "verdict", "signal_rating", "growth_note"
 
 Return ONLY the JSON array, no markdown formatting or code blocks.
 """
@@ -205,21 +222,21 @@ def generate_daily_report(df, ai_results):
 
     lines = []
     lines.append(f"# GitHub Trending Report — {today}\n")
-    lines.append(f"**Top 15 Most-Starred Python Repositories**\n")
+    lines.append(f"**Top 15 Fastest-Rising New Python Repositories (last 90 days)**\n")
     lines.append(f"*Generated automatically by the GitHub Pipeline + Gemini AI*\n")
     lines.append("---\n")
 
     # Summary table
     lines.append("## Overview\n")
-    lines.append("| # | Repository | Stars | Forks | Signal |")
-    lines.append("|---|-----------|-------|-------|--------|")
+    lines.append("| # | Repository | Stars | Age (days) | Signal |")
+    lines.append("|---|-----------|-------|------------|--------|")
 
     for i, (_, repo) in enumerate(df.iterrows(), 1):
         ai = ai_lookup.get(repo['Repository_Name'], {})
         signal = ai.get('signal_rating', '—')
         lines.append(
             f"| {i} | [{repo['Repository_Name']}]({repo['URL']}) "
-            f"| {repo['Stars']:,} | {repo['Forks']:,} | {signal} |"
+            f"| {repo['Stars']:,} | {repo['Age_Days']} | {signal} |"
         )
 
     lines.append("\n---\n")
@@ -230,14 +247,17 @@ def generate_daily_report(df, ai_results):
         summary = ai.get('summary', 'No analysis available.')
         verdict = ai.get('verdict', 'N/A')
         signal = ai.get('signal_rating', '—')
+        growth = ai.get('growth_note', '')
 
         lines.append(f"### {i}. {repo['Repository_Name']} [{signal}]\n")
         lines.append(f"**{repo['Description']}**\n")
         lines.append(f"{repo['Stars']:,} stars | {repo['Forks']:,} forks | "
-                      f"Created {repo['Created_Date'][:10]}\n")
+                      f"{repo['Age_Days']} days old | Created {repo['Created_Date'][:10]}\n")
         lines.append(f"{repo['URL']}\n")
         lines.append(f"> {summary}\n")
         lines.append(f"**Verdict:** {verdict}\n")
+        if growth:
+            lines.append(f"📈 *{growth}*\n")
         lines.append("---\n")
 
     lines.append(f"\n*Report generated on {today} at "

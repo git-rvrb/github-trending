@@ -1,6 +1,6 @@
 # GitHub Trending Report — 2026-04-21
 
-**Top 15 Most-Starred Python Repositories**
+**Top 15 Fastest-Rising New Python Repositories (last 90 days)**
 
 *Generated automatically by the GitHub Pipeline + Gemini AI*
 
@@ -8,237 +8,267 @@
 
 ## Overview
 
-| # | Repository | Stars | Forks | Signal |
-|---|-----------|-------|-------|--------|
-| 1 | [public-apis](https://github.com/public-apis/public-apis) | 425,366 | 46,374 | SOLID |
-| 2 | [free-programming-books](https://github.com/EbookFoundation/free-programming-books) | 385,770 | 66,114 | SOLID |
-| 3 | [system-design-primer](https://github.com/donnemartin/system-design-primer) | 343,480 | 55,477 | SOLID |
-| 4 | [awesome-python](https://github.com/vinta/awesome-python) | 293,462 | 27,726 | SOLID |
-| 5 | [Python](https://github.com/TheAlgorithms/Python) | 219,948 | 50,372 | SOLID |
-| 6 | [AutoGPT](https://github.com/Significant-Gravitas/AutoGPT) | 183,612 | 46,209 | HYPE |
-| 7 | [stable-diffusion-webui](https://github.com/AUTOMATIC1111/stable-diffusion-webui) | 162,501 | 30,281 | FIRE |
-| 8 | [transformers](https://github.com/huggingface/transformers) | 159,660 | 32,946 | FIRE |
-| 9 | [yt-dlp](https://github.com/yt-dlp/yt-dlp) | 157,865 | 13,032 | SOLID |
-| 10 | [HelloGitHub](https://github.com/521xueweihan/HelloGitHub) | 152,134 | 11,582 | SOLID |
-| 11 | [langflow](https://github.com/langflow-ai/langflow) | 147,165 | 8,810 | FIRE |
-| 12 | [youtube-dl](https://github.com/ytdl-org/youtube-dl) | 140,107 | 10,615 | SOLID |
-| 13 | [langchain](https://github.com/langchain-ai/langchain) | 134,224 | 22,176 | FIRE |
-| 14 | [open-webui](https://github.com/open-webui/open-webui) | 132,857 | 18,860 | SOLID |
-| 15 | [skills](https://github.com/anthropics/skills) | 121,049 | 14,055 | FIRE |
+| # | Repository | Stars | Age (days) | Signal |
+|---|-----------|-------|------------|--------|
+| 1 | [autoresearch](https://github.com/karpathy/autoresearch) | 74,953 | 45 | FIRE |
+| 2 | [mempalace](https://github.com/MemPalace/mempalace) | 48,480 | 15 | SOLID |
+| 3 | [caveman](https://github.com/JuliusBrussee/caveman) | 40,692 | 16 | SOLID |
+| 4 | [nanobot](https://github.com/HKUDS/nanobot) | 40,225 | 78 | SOLID |
+| 5 | [CLI-Anything](https://github.com/HKUDS/CLI-Anything) | 31,876 | 43 | FIRE |
+| 6 | [graphify](https://github.com/safishamsi/graphify) | 31,376 | 17 | SOLID |
+| 7 | [last30days-skill](https://github.com/mvanhorn/last30days-skill) | 23,013 | 87 | SOLID |
+| 8 | [Agent-Reach](https://github.com/Panniantong/Agent-Reach) | 17,909 | 55 | SOLID |
+| 9 | [colleague-skill](https://github.com/titanwings/colleague-skill) | 15,810 | 21 | FIRE |
+| 10 | [QwenPaw](https://github.com/agentscope-ai/QwenPaw) | 15,685 | 55 | SOLID |
+| 11 | [edict](https://github.com/cft0808/edict) | 15,317 | 56 | FIRE |
+| 12 | [nuwa-skill](https://github.com/alchaincyf/nuwa-skill) | 13,158 | 15 | FIRE |
+| 13 | [code-review-graph](https://github.com/tirth8205/code-review-graph) | 11,925 | 53 | SOLID |
+| 14 | [AutoResearchClaw](https://github.com/aiming-lab/AutoResearchClaw) | 11,432 | 36 | FIRE |
+| 15 | [knowledge-work-plugins](https://github.com/anthropics/knowledge-work-plugins) | 11,397 | 87 | SOLID |
 
 ---
 
 ## AI Analysis
 
-### 1. public-apis [SOLID]
+### 1. autoresearch [FIRE]
 
-**A collective list of free APIs**
+**AI agents running research on single-GPU nanochat training automatically**
 
-425,366 stars | 46,374 forks | Created 2016-03-20
+74,953 stars | 10,915 forks | 45 days old | Created 2026-03-06
 
-https://github.com/public-apis/public-apis
+https://github.com/karpathy/autoresearch
 
-> This repository serves as a massive, community-maintained collection of free APIs spanning diverse categories like finance, weather, and entertainment. It's an indispensable resource for developers, hobbyists, and researchers seeking to integrate external services or data into their applications without cost.
+> This project enables AI agents to autonomously conduct research, specifically focusing on training `nanochat` models on single GPUs. It's designed for researchers and developers seeking to automate and accelerate experimental cycles in AI model development.
 
-**Verdict:** Not innovative in its concept, as it's fundamentally a curated list. However, its immense scale, consistent maintenance, and sheer utility for developers across countless projects make it an exceptionally solid, enduring resource. Its longevity and massive adoption speak volumes.
+**Verdict:** This is genuinely innovative. The concept of fully autonomous research agents, particularly with Karpathy's backing, addresses a significant bottleneck in AI development and pushes the boundaries of agent capabilities.
 
----
-
-### 2. free-programming-books [SOLID]
-
-**:books: Freely available programming books**
-
-385,770 stars | 66,114 forks | Created 2013-10-11
-
-https://github.com/EbookFoundation/free-programming-books
-
-> This project is an extensive, curated directory of freely available programming books and educational resources across a wide spectrum of programming languages and technical topics. It caters to learners of all levels, from those starting their coding journey to experienced developers expanding their knowledge base.
-
-**Verdict:** Similar to other 'awesome lists,' its innovation isn't technological but rather in its invaluable curation and accessibility. It's a robust utility that significantly democratizes access to programming education, making it a foundational and consistently useful resource for the developer community.
+📈 *Astounding growth, achieving nearly 75k stars in just over a month and a half, indicating massive interest in autonomous AI research.*
 
 ---
 
-### 3. system-design-primer [SOLID]
+### 2. mempalace [SOLID]
 
-**Learn how to design large-scale systems. Prep for the system design interview.  Includes Anki flashcards.**
+**The best-benchmarked open-source AI memory system. And it's free.**
 
-343,480 stars | 55,477 forks | Created 2017-02-26
+48,480 stars | 6,343 forks | 15 days old | Created 2026-04-05
 
-https://github.com/donnemartin/system-design-primer
+https://github.com/MemPalace/mempalace
 
-> This repository provides a comprehensive and structured guide for mastering large-scale system design, specifically geared towards preparing for technical interviews at major tech companies. It's a crucial resource for mid-to-senior level software engineers looking to enhance their architectural skills and advance their careers.
+> Mempalace offers a top-benchmarked, free, and open-source AI memory system for large language models. It's for developers building sophisticated AI agents that require robust, scalable, and persistent memory management capabilities.
 
-**Verdict:** While system design principles are well-established, this repo innovatively organizes and presents complex information in an actionable, interview-focused format. It fills a critical gap in career development resources, proving to be an exceptionally solid utility for aspiring architects and senior engineers.
+**Verdict:** This is a solid utility. While AI memory systems exist, the claim of 'best-benchmarked' combined with being free and open-source makes it a compelling, high-quality offering that addresses a critical need in agent development.
 
----
-
-### 4. awesome-python [SOLID]
-
-**An opinionated list of Python frameworks, libraries, tools, and resources**
-
-293,462 stars | 27,726 forks | Created 2014-06-27
-
-https://github.com/vinta/awesome-python
-
-> This is an opinionated, curated compilation of essential Python frameworks, libraries, tools, and resources, covering virtually every domain of Python development. It's designed for Python developers of all experience levels who seek to discover best-in-class solutions and streamline their development workflow.
-
-**Verdict:** As a classic 'awesome list,' its value lies not in technological innovation but in its exceptional curation and breadth. It functions as a highly reliable starting point for Python developers, saving countless hours of research and ensuring access to high-quality, community-vetted tools. A truly solid utility.
+📈 *Phenomenal star growth for just 15 days, demonstrating a clear market demand for high-quality, open-source AI memory solutions.*
 
 ---
 
-### 5. Python [SOLID]
+### 3. caveman [SOLID]
 
-**All Algorithms implemented in Python**
+**🪨 why use many token when few token do trick — Claude Code skill that cuts 65% of tokens by talking like caveman**
 
-219,948 stars | 50,372 forks | Created 2016-07-16
+40,692 stars | 2,049 forks | 16 days old | Created 2026-04-04
 
-https://github.com/TheAlgorithms/Python
+https://github.com/JuliusBrussee/caveman
 
-> This repository offers a broad collection of algorithms and data structures, meticulously implemented in Python. It's an excellent educational tool for computer science students to understand fundamental concepts, and a practical reference for developers needing to implement or study algorithmic solutions.
+> This project provides a prompt engineering 'skill' for Claude Code that significantly reduces token usage (up to 65%) by encouraging a terse, 'caveman-like' communication style. It's for developers using Claude models who want to drastically cut API costs and improve inference speed.
 
-**Verdict:** Implementing algorithms is a fundamental computer science task, not innovative in itself. However, this project stands out as a solid utility due to its comprehensive scope, clear implementations, and active community contributions, making it an invaluable resource for both learning and practical application.
+**Verdict:** This is a solid utility. While the 'caveman' meme is fun, the underlying pragmatic benefit of substantial token reduction for LLMs is very real and highly valuable for cost and efficiency, making it incredibly useful.
 
----
-
-### 6. AutoGPT [HYPE]
-
-**AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.**
-
-183,612 stars | 46,209 forks | Created 2023-03-16
-
-https://github.com/Significant-Gravitas/AutoGPT
-
-> AutoGPT was an early, ambitious project aiming to create an autonomous AI agent capable of breaking down complex high-level goals into smaller, executable sub-tasks. It targeted developers and researchers keen to explore self-driving AI systems and the then-emerging concept of AI agentic workflows.
-
-**Verdict:** AutoGPT undeniably rode a significant initial hype wave, showcasing the compelling vision of fully autonomous agents but often struggling with practical reliability and execution costs. While it sparked immense interest and inspired further agent research, its initial claims often outpaced its immediate, consistent delivery, making it more hype-driven proof-of-concept than a stable utility at its peak.
+📈 *Incredible star accumulation in just over two weeks, highlighting the immense user demand for practical token cost-saving strategies in LLM applications.*
 
 ---
 
-### 7. stable-diffusion-webui [FIRE]
+### 4. nanobot [SOLID]
 
-**Stable Diffusion web UI**
+**"🐈 nanobot: The Ultra-Lightweight Personal AI Agent"**
 
-162,501 stars | 30,281 forks | Created 2022-08-22
+40,225 stars | 7,079 forks | 78 days old | Created 2026-02-01
 
-https://github.com/AUTOMATIC1111/stable-diffusion-webui
+https://github.com/HKUDS/nanobot
 
-> This project provides a comprehensive and user-friendly web interface for Stable Diffusion, enabling local generation of AI art, image editing, and advanced image manipulation. It's an indispensable tool for artists, designers, and hobbyists who want to leverage cutting-edge generative AI without needing deep technical expertise.
+> Nanobot is an ultra-lightweight personal AI agent that supports various LLMs, emphasizing portability and minimal resource usage. It targets individuals and developers looking for a simple, efficient, and customizable AI assistant that runs locally or on constrained environments.
 
-**Verdict:** While Stable Diffusion itself is the core innovation, this WebUI is a profoundly impactful utility. It has democratized AI image generation, making powerful capabilities accessible to a broad audience, fostering creativity, and driving widespread adoption of generative AI. Its extensive features and active development solidify its 'FIRE' status through enabling mass usage of a 'FIRE' technology.
+**Verdict:** This is a solid utility. Its focus on being ultra-lightweight and personal offers a streamlined entry point into AI agents without significant overhead, filling a practical niche for accessible AI.
 
----
-
-### 8. transformers [FIRE]
-
-**🤗 Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and multimodal models, for both inference and training. **
-
-159,660 stars | 32,946 forks | Created 2018-10-29
-
-https://github.com/huggingface/transformers
-
-> Hugging Face's Transformers library is a foundational open-source framework for building and utilizing state-of-the-art machine learning models across text, vision, and audio modalities. It serves as the definitive toolkit for ML engineers and researchers to quickly implement, fine-tune, and deploy powerful models like LLMs and vision transformers.
-
-**Verdict:** This is genuinely innovative and has become a cornerstone of modern AI. It standardizes access to and accelerates the development of cutting-edge models, significantly lowering the barrier to entry for complex ML tasks. It's a critical piece of infrastructure that has profoundly shaped and driven the current AI boom.
+📈 *Strong, consistent growth over its relatively longer lifespan, indicating sustained interest in personal and lightweight AI agent solutions.*
 
 ---
 
-### 9. yt-dlp [SOLID]
+### 5. CLI-Anything [FIRE]
 
-**A feature-rich command-line audio/video downloader**
+**"CLI-Anything: Making ALL Software Agent-Native" -- CLI-Hub: https://clianything.cc/**
 
-157,865 stars | 13,032 forks | Created 2020-10-26
+31,876 stars | 3,098 forks | 43 days old | Created 2026-03-08
 
-https://github.com/yt-dlp/yt-dlp
+https://github.com/HKUDS/CLI-Anything
 
-> yt-dlp is a highly versatile and robust command-line tool designed for downloading audio and video from YouTube and thousands of other video-hosting websites. It's built for users who require reliable, customizable media download capabilities, offering significant improvements and more features than its predecessor.
+> CLI-Anything aims to make any command-line interface (CLI) software 'agent-native,' enabling seamless interaction and control by AI agents. This project is for developers building AI agents that need to integrate and utilize a wide array of existing software tools.
 
-**Verdict:** Not innovative in its core function as a downloader, but it stands as an exceptionally solid utility. It effectively took over from `youtube-dl`, providing superior maintenance, expanded features, and broader site compatibility. It embodies community-driven software development at its best, solving a common problem with excellence.
+**Verdict:** This is genuinely innovative and foundational. Bridging the gap between traditional CLI tools and AI agents is crucial for expanding agent capabilities, potentially becoming a critical piece of the future agent infrastructure.
 
----
-
-### 10. HelloGitHub [SOLID]
-
-**:octocat: 分享 GitHub 上有趣、入门级的开源项目。Share interesting, entry-level open source projects on GitHub.**
-
-152,134 stars | 11,582 forks | Created 2016-05-04
-
-https://github.com/521xueweihan/HelloGitHub
-
-> This repository curates and shares interesting, beginner-friendly open-source projects on GitHub, primarily targeted at Chinese-speaking developers. Its purpose is to help new developers discover accessible projects to learn from, contribute to, and actively participate in the open-source community.
-
-**Verdict:** While fundamentally a list, this project provides a solid utility by significantly lowering the barrier to entry for new developers, especially within a specific linguistic and cultural context. It's a valuable resource for education and fostering community engagement in open-source.
+📈 *Excellent growth, reflecting the perceived importance of making all software accessible and controllable by AI agents as the ecosystem matures.*
 
 ---
 
-### 11. langflow [FIRE]
+### 6. graphify [SOLID]
 
-**Langflow is a powerful tool for building and deploying AI-powered agents and workflows.**
+**AI coding assistant skill (Claude Code, Codex, OpenCode, Cursor, Gemini CLI, GitHub Copilot CLI, OpenClaw, Factory Droid, Trae, Google Antigravity). Turn any folder of code, docs, papers, images, or videos into a queryable knowledge graph**
 
-147,165 stars | 8,810 forks | Created 2023-02-08
+31,376 stars | 3,469 forks | 17 days old | Created 2026-04-03
 
-https://github.com/langflow-ai/langflow
+https://github.com/safishamsi/graphify
 
-> Langflow offers a visual, low-code interface for building and deploying complex AI-powered agents and workflows, typically leveraging large language models. It targets developers and AI enthusiasts who want to design and experiment with LLM applications through an intuitive drag-and-drop UI, minimizing direct coding.
+> Graphify creates queryable knowledge graphs from diverse local data sources like code, documents, and media to enhance AI coding assistants. It's for developers and knowledge workers who want to provide their AI assistants with a structured, comprehensive understanding of specific project contexts.
 
-**Verdict:** This is genuinely innovative in its approach to democratizing LLM application development. By providing a visual builder, it significantly reduces the friction for creating sophisticated agentic workflows, making advanced AI more accessible for rapid prototyping and deployment for a wider audience.
+**Verdict:** This is a solid utility. By creating localized, rich knowledge graphs, it moves beyond simple RAG, adding semantic relationships that significantly improve an AI's contextual understanding for complex tasks, especially in coding.
 
----
-
-### 12. youtube-dl [SOLID]
-
-**Command-line program to download videos from YouTube.com and other video sites**
-
-140,107 stars | 10,615 forks | Created 2010-10-31
-
-https://github.com/ytdl-org/youtube-dl
-
-> youtube-dl is a veteran command-line program designed to download videos from YouTube.com and a multitude of other video-hosting sites. For many years, it served as a reliable tool for users needing to save online video content for offline access.
-
-**Verdict:** Historically, this was a foundational and solid utility, pioneering the command-line video downloading space. While its successor, `yt-dlp`, has largely surpassed it in active development and features, its impact and legacy as a highly functional tool remain significant.
+📈 *Impressive star accumulation in under three weeks, indicating strong demand for better contextual understanding and knowledge management for AI coding assistants.*
 
 ---
 
-### 13. langchain [FIRE]
+### 7. last30days-skill [SOLID]
 
-**The agent engineering platform**
+**AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a grounded summary**
 
-134,224 stars | 22,176 forks | Created 2022-10-17
+23,013 stars | 1,895 forks | 87 days old | Created 2026-01-23
 
-https://github.com/langchain-ai/langchain
+https://github.com/mvanhorn/last30days-skill
 
-> LangChain is a leading framework designed to streamline the development of applications powered by large language models, emphasizing agentic workflows and data integration (RAG). It caters to AI engineers and developers building complex LLM-driven applications, offering critical abstractions for chaining models, tools, and data sources.
+> This AI agent skill specializes in real-time topic research across various social media and news platforms, synthesizing grounded summaries focused on recent trends. It's for anyone needing quick, up-to-date insights on emerging topics, researchers, and content creators.
 
-**Verdict:** LangChain is profoundly innovative. It almost single-handedly defined and popularized key patterns like Retrieval-Augmented Generation (RAG) and LLM agent orchestration, becoming an essential foundational framework for practical LLM application development. It's a cornerstone technology driving the current generative AI ecosystem.
+**Verdict:** This is a solid utility. It addresses the common need for rapid, recent information synthesis across disparate online sources, providing a direct, actionable output that is highly practical for trend analysis and current awareness.
 
----
-
-### 14. open-webui [SOLID]
-
-**User-friendly AI Interface (Supports Ollama, OpenAI API, ...)**
-
-132,857 stars | 18,860 forks | Created 2023-10-06
-
-https://github.com/open-webui/open-webui
-
-> Open-WebUI provides a user-friendly, self-hostable web interface for interacting with various large language models, including those accessible via OpenAI API or local models through Ollama. It's designed for users who desire a polished, customizable chat experience for their AI models without exclusive reliance on proprietary vendor UIs.
-
-**Verdict:** While graphical UIs for LLMs aren't new, Open-WebUI is a very solid utility that addresses a clear demand for flexible, self-hosted LLM interaction. Its robust multi-backend support, clean design, and active development make it an excellent, practical solution for a personal AI front-end.
+📈 *Solid, consistent growth over nearly three months, demonstrating the enduring value of a tool for tracking recent trends and information synthesis.*
 
 ---
 
-### 15. skills [FIRE]
+### 8. Agent-Reach [SOLID]
 
-**Public repository for Agent Skills**
+**Give your AI agent eyes to see the entire internet. Read & search Twitter, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu — one CLI, zero API fees.**
 
-121,049 stars | 14,055 forks | Created 2025-09-22
+17,909 stars | 1,567 forks | 55 days old | Created 2026-02-24
 
-https://github.com/anthropics/skills
+https://github.com/Panniantong/Agent-Reach
 
-> This repository, from Anthropic, appears to be focused on defining and implementing 'skills' for AI agents, allowing them to perform specific tasks or integrate with external tools. It's targeted at researchers and developers working on advanced AI agent capabilities, aiming to enhance their functionality and robustness.
+> Agent-Reach provides AI agents with comprehensive internet browsing and social media access, including platforms like Twitter, Reddit, and YouTube, via a single CLI with zero API fees. It's for developers building agents that require broad, unrestricted, and cost-free access to real-time online information.
 
-**Verdict:** Given Anthropic's leadership in AI and the focus on 'agent skills,' this project is likely genuinely innovative, pushing the boundaries of autonomous AI. Defining and managing skills is crucial for building robust, intelligent agentic systems, positioning it as foundational research and development rather than mere hype.
+**Verdict:** This is a solid utility. The combination of 'zero API fees' and extensive platform coverage significantly democratizes agent access to rich internet data, addressing a key limitation for many agent builders and making it highly practical.
+
+📈 *Very strong growth, reflecting the high demand for free and comprehensive web scraping/access tools for AI agents.*
+
+---
+
+### 9. colleague-skill [FIRE]
+
+**将冰冷的离别化为温暖的 Skill，欢迎加入数字生命1.0！Transforming cold farewells into warm skills? It's giving rebirth era. Welcome to Digital Life 1.0. 🫶**
+
+15,810 stars | 1,604 forks | 21 days old | Created 2026-03-30
+
+https://github.com/titanwings/colleague-skill
+
+> This project, despite its abstract description ('transforming cold farewells into warm skills'), appears to be about distilling human knowledge, personality, or thought processes into an AI agent skill for preservation or ongoing interaction. It's for individuals interested in creating AI 'digital twins' or enhanced conversational agents.
+
+**Verdict:** This is genuinely innovative, albeit speculative. The concept of distilling someone's 'essence' into an AI skill taps into a futuristic vision of AI and personal legacy, making it conceptually exciting despite its current abstractness.
+
+📈 *Extremely rapid growth for such an abstract concept, suggesting strong public fascination with the idea of digital immortality or advanced personal AI.*
+
+---
+
+### 10. QwenPaw [SOLID]
+
+**Your Personal AI Assistant; easy to install, deploy on your own machine or on the cloud; supports multiple chat apps with easily extensible capabilities.**
+
+15,685 stars | 2,146 forks | 55 days old | Created 2026-02-24
+
+https://github.com/agentscope-ai/QwenPaw
+
+> QwenPaw is an easily installable, deployable, and extensible personal AI assistant that supports multiple chat applications locally or in the cloud. It's designed for users who want a flexible, customizable AI assistant for various daily tasks with a focus on ease of setup and broad compatibility.
+
+**Verdict:** This is a solid utility. It provides a user-friendly and adaptable framework for personal AI assistants, emphasizing easy deployment and extensibility, which makes it a practical choice for a wide range of users without necessarily being groundbreaking in core AI.
+
+📈 *Consistent, strong growth over nearly two months, indicating sustained interest in accessible and customizable personal AI assistants.*
+
+---
+
+### 11. edict [FIRE]
+
+**🏛️ 三省六部制 · OpenClaw Multi-Agent Orchestration System — 9 specialized AI agents with real-time dashboard, model config, and full audit trails**
+
+15,317 stars | 1,608 forks | 56 days old | Created 2026-02-23
+
+https://github.com/cft0808/edict
+
+> Edict is a multi-agent orchestration system, drawing inspiration from ancient Chinese governance, featuring nine specialized AI agents, a real-time dashboard, and comprehensive configuration/audit tools. It's for developers and organizations building complex, coordinated AI agent workflows that require robust management, monitoring, and transparency.
+
+**Verdict:** This is genuinely innovative. The structured, multi-agent orchestration with a clear operational metaphor addresses the growing complexity of deploying multiple specialized agents, providing a comprehensive management layer crucial for enterprise adoption.
+
+📈 *Very strong growth for an orchestration framework, highlighting the increasing need for sophisticated management tools as multi-agent systems become more prevalent.*
+
+---
+
+### 12. nuwa-skill [FIRE]
+
+**你想蒸馏的下一个员工，何必是同事。蒸馏任何人的思维方式——心智模型、决策启发式、表达DNA。Distill how anyone thinks.**
+
+13,158 stars | 2,207 forks | 15 days old | Created 2026-04-05
+
+https://github.com/alchaincyf/nuwa-skill
+
+> Nuwa-skill focuses on distilling an individual's unique thought processes, mental models, decision heuristics, and communication style into an AI 'skill.' It's for users aiming to capture and replicate specific human intelligence patterns for integration into AI agents.
+
+**Verdict:** This is genuinely innovative, exploring the deeply speculative but exciting concept of cognitive distillation. It pushes the boundaries of personalized AI and the digital preservation of intellect, attracting significant interest in its futuristic vision.
+
+📈 *Extremely fast growth in a very short period, reflecting significant curiosity and excitement around advanced cognitive distillation for AI.*
+
+---
+
+### 13. code-review-graph [SOLID]
+
+**Local knowledge graph for Claude Code. Builds a persistent map of your codebase so Claude reads only what matters — 6.8× fewer tokens on reviews and up to 49× on daily coding tasks.**
+
+11,925 stars | 1,318 forks | 53 days old | Created 2026-02-26
+
+https://github.com/tirth8205/code-review-graph
+
+> This project builds a local, persistent knowledge graph of a codebase specifically for Claude Code, enabling the AI to focus on relevant information and dramatically reduce token usage for code reviews and daily coding tasks. It's for developers and teams using Claude Code who want to optimize token efficiency and improve AI-assisted coding accuracy.
+
+**Verdict:** This is a solid utility with strong impact. By intelligently structuring codebase knowledge, it directly addresses critical issues of token limits, cost, and contextual understanding for LLMs in large codebases. The quantitative token savings are a compelling feature.
+
+📈 *Very strong growth, indicating a significant and widespread pain point that this project effectively addresses for AI-assisted coding.*
+
+---
+
+### 14. AutoResearchClaw [FIRE]
+
+**Fully autonomous & self-evolving research from idea to paper. Chat an Idea. Get a Paper. 🦞**
+
+11,432 stars | 1,320 forks | 36 days old | Created 2026-03-15
+
+https://github.com/aiming-lab/AutoResearchClaw
+
+> AutoResearchClaw provides a fully autonomous and self-evolving AI system capable of conducting research from an initial idea to generating a complete research paper. It targets researchers, academics, and anyone needing an AI assistant to significantly accelerate or automate the scientific discovery and publication process.
+
+**Verdict:** This is genuinely innovative. The ambition to fully automate the entire research-to-paper pipeline, including self-evolution, is groundbreaking and pushes the frontier of AI agency, promising transformative potential for scientific fields.
+
+📈 *Rapid growth in just over a month, demonstrating immense interest in automating complex, knowledge-intensive tasks like scientific research.*
+
+---
+
+### 15. knowledge-work-plugins [SOLID]
+
+**Open source repository of plugins primarily intended for knowledge workers to use in Claude Cowork**
+
+11,397 stars | 1,306 forks | 87 days old | Created 2026-01-23
+
+https://github.com/anthropics/knowledge-work-plugins
+
+> This repository offers open-source plugins primarily designed to augment the capabilities of Claude Cowork for knowledge workers. It's for users and developers looking to extend Claude Cowork's functionality with tailored tools for research, data handling, and other knowledge-intensive tasks.
+
+**Verdict:** This is a solid utility. While not innovative on its own, providing a diverse set of open-source plugins is crucial for platform adoption and customization, catering to practical needs and enhancing the overall ecosystem for knowledge workers.
+
+📈 *Steady and respectable growth over its lifetime, indicating a healthy interest in expanding the utility of AI platforms like Claude Cowork through plugins.*
 
 ---
 
 
-*Report generated on 2026-04-21 at 00:32 UTC*
+*Report generated on 2026-04-21 at 00:40 UTC*
