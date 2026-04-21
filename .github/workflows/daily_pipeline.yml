@@ -1,0 +1,40 @@
+name: Daily GitHub Trending Pipeline
+
+on:
+  schedule:
+    # Runs daily at 08:00 UTC
+    - cron: '0 8 * * *'
+  workflow_dispatch: # Allow manual trigger
+
+permissions:
+  contents: write
+
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
+
+    env:
+      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      USE_DB: 'false'  # No database in GitHub Actions
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run pipeline
+        run: python github_api_pipeline.py
+
+      - name: Commit and push report
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "actions@github.com"
+          git add reports/
+          git diff --staged --quiet || (git commit -m "📝 Daily trending report — $(date -u +%Y-%m-%d)" && git push)
