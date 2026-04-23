@@ -152,30 +152,49 @@ Return ONLY the JSON array, no markdown formatting or code blocks.
 
     print("🤖 Asking Gemini to analyze repos...")
 
-    # Retry with adaptive waits — parse retry delay from API error when possible
+    # Model fallback chain — try each model before giving up
+    models = ['gemini-2.5-flash', 'gemini-2.0-flash', 'gemini-2.5-flash-lite']
     ai_response = None
-    for attempt in range(4):
-        try:
-            ai_response = client.models.generate_content(
-                model='gemini-2.5-flash',
-                contents=prompt,
-            )
-            break
-        except Exception as e:
-            error_msg = str(e)
-            # Try to extract retry delay from the error message
-            delay_match = re.search(r"retryDelay.*?'(\d+)s'", error_msg)
-            if delay_match:
-                wait = int(delay_match.group(1)) + 5  # Add 5s buffer
-            else:
-                wait = 60 * (attempt + 1)  # Fallback: 60s, 120s, 180s
+    last_error = None
 
-            print(f"⚠️  Gemini API error (attempt {attempt + 1}/4): rate limited")
-            if attempt < 3:
-                print(f"   Retrying in {wait}s...")
-                time.sleep(wait)
-            else:
-                raise RuntimeError(f"Gemini API failed after 4 attempts: {e}")
+    for model_name in models:
+        print(f"   Trying model: {model_name}")
+        success = False
+        for attempt in range(3):
+            try:
+                ai_response = client.models.generate_content(
+                    model=model_name,
+                    contents=prompt,
+                )
+                print(f"   ✅ Success with {model_name}")
+                success = True
+                break
+            except Exception as e:
+                last_error = str(e)
+                # Try to extract retry delay from the error message
+                delay_match = re.search(r"retryDelay.*?'(\d+)s'", last_error)
+                if delay_match:
+                    wait = int(delay_match.group(1)) + 5
+                else:
+                    wait = 30 * (attempt + 1)  # 30s, 60s, 90s
+
+                is_capacity = '503' in last_error or 'UNAVAILABLE' in last_error
+                is_quota = '429' in last_error or 'RESOURCE_EXHAUSTED' in last_error
+                error_type = "capacity" if is_capacity else "quota" if is_quota else "error"
+
+                print(f"   ⚠️  {model_name} attempt {attempt + 1}/3: {error_type}")
+                if is_quota:
+                    print(f"   → Quota exhausted, skipping to next model")
+                    break  # Don't retry this model, try the next one
+                if attempt < 2:
+                    print(f"   → Retrying in {wait}s...")
+                    time.sleep(wait)
+
+        if success:
+            break
+
+    if ai_response is None:
+        raise RuntimeError(f"All Gemini models failed. Last error: {last_error}")
 
     # Parse the AI response
     response_text = ai_response.text.strip()
