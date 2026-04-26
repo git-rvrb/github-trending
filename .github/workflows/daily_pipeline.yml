@@ -2,9 +2,19 @@ name: Daily GitHub Trending Pipeline
 
 on:
   schedule:
-    # Runs daily at 08:00 UTC
+    # Runs daily at 08:00 UTC — auto mode decides snapshot vs report
     - cron: '0 8 * * *'
-  workflow_dispatch: # Allow manual trigger
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Run mode'
+        required: false
+        default: 'auto'
+        type: choice
+        options:
+          - auto
+          - snapshot
+          - report
 
 permissions:
   contents: write
@@ -30,11 +40,13 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run pipeline
-        run: python github_api_pipeline.py
+        run: |
+          MODE="${{ github.event.inputs.mode || 'auto' }}"
+          python github_api_pipeline.py --mode $MODE
 
-      - name: Commit and push report
+      - name: Commit and push results
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
-          git add reports/
-          git diff --staged --quiet || (git commit -m "📝 Daily trending report — $(date -u +%Y-%m-%d)" && git push)
+          git add data/ reports/
+          git diff --staged --quiet || (git commit -m "📊 $(if [ "$(date -u +%u)" = "1" ]; then echo "Weekly report"; else echo "Daily snapshot"; fi) — $(date -u +%Y-%m-%d)" && git push)
