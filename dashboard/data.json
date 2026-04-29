@@ -1,0 +1,435 @@
+{
+  "last_updated": "2026-04-26",
+  "week": "Week 17, 2026",
+  "new_repos_count": 15,
+  "repos": [
+    {
+      "name": "mempalace",
+      "url": "https://github.com/MemPalace/mempalace",
+      "description": "The best-benchmarked open-source AI memory system. And it's free.",
+      "stars": 49806,
+      "forks": 6525,
+      "language": "Python",
+      "topics": [
+        "ai",
+        "chromadb",
+        "llm",
+        "mcp",
+        "memory",
+        "python"
+      ],
+      "age_days": 21,
+      "stars_per_day": 2371.7,
+      "velocity_7d": null,
+      "velocity_trend": "—",
+      "signal": "SOLID",
+      "summary": "This project offers an open-source, highly-benchmarked AI memory system designed for LLMs. It aims to provide persistent and efficient memory capabilities for AI agents, leveraging technologies like ChromaDB. This addresses a critical need for more robust and context-aware AI applications.",
+      "is_new": true
+    },
+    {
+      "name": "caveman",
+      "url": "https://github.com/JuliusBrussee/caveman",
+      "description": "🪨 why use many token when few token do trick — Claude Code skill that cuts 65% of tokens by talking like caveman",
+      "stars": 47143,
+      "forks": 2480,
+      "language": "Python",
+      "topics": [
+        "ai",
+        "anthropic",
+        "caveman",
+        "claude",
+        "claude-code",
+        "llm",
+        "meme",
+        "prompt-engineering",
+        "skill",
+        "tokens"
+      ],
+      "age_days": 22,
+      "stars_per_day": 2142.9,
+      "velocity_7d": null,
+      "velocity_trend": "—",
+      "signal": "FIRE",
+      "summary": "Caveman is a Claude Code skill designed to drastically reduce LLM token usage by rephrasing prompts into a highly concise, 'caveman-like' language. It's a novel and practical approach to prompt engineering focused on efficiency and cost reduction.",
+      "is_new": true
+    },
+    {
+      "name": "graphify",
+      "url": "https://github.com/safishamsi/graphify",
+      "description": "AI coding assistant skill (Claude Code, Codex, OpenCode, Cursor, Gemini CLI, GitHub Copilot CLI, OpenClaw, Factory Droid, Trae, Google Antigravity). Turn any folder of code, docs, papers, images, or videos into a queryable knowledge graph",
+      "stars": 35489,
+      "forks": 3938,
+      "language": "Python",
+      "topics": [
+        "antigravity",
+        "claude-code",
+        "codex",
+        "gemini",
+        "graphrag",
+        "knowledge-graph",
+        "openclaw",
+        "skills"
+      ],
+      "age_days": 23,
+      "stars_per_day": 1543.0,
+      "velocity_7d": null,
+      "velocity_trend": "—",
+      "signal": "FIRE",
+      "summary": "Graphify is an AI coding assistant skill that transforms diverse content – code, documents, images, and videos – into a queryable knowledge graph. It integrates with popular LLM coding assistants to provide enhanced contextual understanding for AI agents.",
+      "is_new": true
+    },
+    {
+      "name": "autoresearch",
+      "url": "https://github.com/karpathy/autoresearch",
+      "description": "AI agents running research on single-GPU nanochat training automatically",
+      "stars": 76847,
+      "forks": 11208,
+      "language": "Python",
+      "topics": [],
+      "age_days": 51,
+      "stars_per_day": 1506.8,
+      "velocity_7d": null,
+      "velocity_trend": "—",
+      "signal": "FIRE",
+      "summary": "From Andrej Karpathy, autoresearch aims to enable AI agents to autonomously conduct research, specifically focused on training nanochat models on a single GPU. It explores self-improving AI systems for scientific discovery and model optimization.",
+      "is_new": true
+    },
+    {
+      "name": "OpenMythos",
+      "url": "https://github.com/kyegomez/OpenMythos",
+      "description": "A theoretical reconstruction of the Claude Mythos architecture, built from first principles using the available research literature.",
+      "stars": 10638,
+      "forks": 2378,
+      "language": "Python",
+      "topics": [
+        "ai",
+        "anthropic",
+        "attention",
+        "claude",
+        "claude-ai",
+        "claude-code",
+        "claude-code-plugin",
+        "claude-mythos",
+        "claude-sonnet",
+        "deepmind",
+        "gpt-5",
+        "gpt-7",
+        "jax",
+        "looped-transformers",
+        "ml",
+        "pytorch",
+        "sonnet",
+        "torch"
+      ],
+      "age_days": 8,
+      "stars_per_day": 1329.8,
+      "velocity_7d": null,
+      "velocity_trend": "—",
+      "signal": "FIRE",
+      "summary": "OpenMythos is a theoretical reconstruction and open-source implementation of Anthropic's rumored 'Claude Mythos' architecture, built from publicly available research. It aims to replicate advanced transformer designs, pushing the boundaries of open-source LLM development.",
+      "is_new": true
+    },
+    {
+      "name": "browser-harness",
+      "url": "https://github.com/browser-use/browser-harness",
+      "description": "Browser Harness | Self-healing harness that enables LLMs to complete any task.",
+      "stars": 7155,
+      "forks": 643,
+      "language": "Python",
+      "topics": [],
+      "age_days": 9,
+      "stars_per_day": 795.0,
+      "velocity_7d": null,
+      "velocity_trend": "—",
+      "signal": "SOLID",
+      "summary": "Browser Harness is a self-healing system designed to empower LLMs to complete any task by interacting with a web browser. It provides a robust and resilient interface for AI agents to perform complex actions in diverse web environments.",
+      "is_new": true
+    },
+    {
+      "name": "nuwa-skill",
+      "url": "https://github.com/alchaincyf/nuwa-skill",
+      "description": "你想蒸馏的下一个员工，何必是同事。蒸馏任何人的思维方式——心智模型、决策启发式、表达DNA。Distill how anyone thinks.",
+      "stars": 14914,
+      "forks": 2437,
+      "language": "Python",
+      "topics": [],
+      "age_days": 21,
+      "stars_per_day": 710.2,
+      "velocity_7d": null,
+      "velocity_trend": "—",
+      "signal": "FIRE",
+      "summary": "Nuwa-skill aims to 'distill' the mindset, decision-making heuristics, and expressive DNA of any individual, creating a personalized digital skill or persona. It's envisioned as a way to create 'the next employee' or replicate thinking patterns.",
+      "is_new": true
+    },
+    {
+      "name": "CLI-Anything",
+      "url": "https://github.com/HKUDS/CLI-Anything",
+      "description": "\"CLI-Anything: Making ALL Software Agent-Native\" -- CLI-Hub: https://clianything.cc/",
+      "stars": 32668,
+      "forks": 3181,
+      "language": "Python",
+      "topics": [],
+      "age_days": 49,
+      "stars_per_day": 666.7,
+      "velocity_7d": null,
+      "velocity_trend": "—",
+      "signal": "SOLID",
+      "summary": "CLI-Anything aims to make 'ALL Software Agent-Native' by providing a hub and framework for seamlessly integrating any command-line interface with AI agents. This standardizes how agents interact with the vast ecosystem of existing software tools.",
+      "is_new": true
+    },
+    {
+      "name": "awesome-gpt-image-2-prompts",
+      "url": "https://github.com/EvoLinkAI/awesome-gpt-image-2-prompts",
+      "description": "Curated GPT-Image-2 prompts fot the Openai API：image examples across portraits, posters, UI mockups, character sheets, and community experiments.",
+      "stars": 5135,
+      "forks": 466,
+      "language": "Python",
+      "topics": [
+        "api",
+        "awesome-list",
+        "chatgpt",
+        "generative-",
+        "gpt-image-2",
+        "gpt-image-2-api",
+        "gpt-image-2-prompts",
+        "image-generation",
+        "image-prompt",
+        "image-to-image",
+        "openai",
+        "prompt-",
+        "prompt-collection",
+        "prompts",
+        "text-to-image"
+      ],
+      "age_days": 8,
+      "stars_per_day": 641.9,
+      "velocity_7d": null,
+      "velocity_trend": "—",
+      "signal": "HYPE",
+      "summary": "This is a curated list of high-quality prompts specifically designed for OpenAI's new GPT-Image-2 API, covering a wide range of image generation styles and use cases. It serves as a valuable resource for users seeking to maximize outputs from the model.",
+      "is_new": true
+    },
+    {
+      "name": "colleague-skill",
+      "url": "https://github.com/titanwings/colleague-skill",
+      "description": "将冰冷的离别化为温暖的 Skill，欢迎加入数字生命1.0！Transforming cold farewells into warm skills? It's giving rebirth era. Welcome to Digital Life 1.0. 🫶",
+      "stars": 16658,
+      "forks": 1693,
+      "language": "Python",
+      "topics": [],
+      "age_days": 27,
+      "stars_per_day": 617.0,
+      "velocity_7d": null,
+      "velocity_trend": "—",
+      "signal": "FIRE",
+      "summary": "Described as 'Transforming cold farewells into warm skills' and ushering in 'Digital Life 1.0', this project proposes creating AI skills or digital personas based on individuals. This could be for retaining knowledge or simulating interactions after a person's departure.",
+      "is_new": true
+    },
+    {
+      "name": "OpenHarness",
+      "url": "https://github.com/HKUDS/OpenHarness",
+      "description": "\"OpenHarness: Open Agent Harness with a Built-in Personal Agent--Ohmo!\"",
+      "stars": 11292,
+      "forks": 1906,
+      "language": "Python",
+      "topics": [],
+      "age_days": 25,
+      "stars_per_day": 451.7,
+      "velocity_7d": null,
+      "velocity_trend": "—",
+      "signal": "SOLID",
+      "summary": "OpenHarness is an open agent harness that includes a built-in personal agent named 'Ohmo!'. It provides a flexible framework for developing, deploying, and managing AI agents, likely focusing on robust task execution and interaction paradigms.",
+      "is_new": true
+    },
+    {
+      "name": "lingbot-map",
+      "url": "https://github.com/Robbyant/lingbot-map",
+      "description": "A feed-forward 3D foundation model for reconstructing scenes from streaming data",
+      "stars": 4695,
+      "forks": 421,
+      "language": "Python",
+      "topics": [],
+      "age_days": 11,
+      "stars_per_day": 426.8,
+      "velocity_7d": null,
+      "velocity_trend": "—",
+      "signal": "FIRE",
+      "summary": "Lingbot-map is a feed-forward 3D foundation model specifically designed for reconstructing complex scenes from streaming data. This project has significant implications for real-time spatial computing, robotics, and augmented reality applications.",
+      "is_new": true
+    },
+    {
+      "name": "video-use",
+      "url": "https://github.com/browser-use/video-use",
+      "description": "Edit videos with coding agents",
+      "stars": 4813,
+      "forks": 687,
+      "language": "Python",
+      "topics": [],
+      "age_days": 14,
+      "stars_per_day": 343.8,
+      "velocity_7d": null,
+      "velocity_trend": "—",
+      "signal": "FIRE",
+      "summary": "Video-use empowers users to edit videos using coding agents, enabling a programmatic and AI-driven approach to video manipulation. This could automate complex editing tasks through natural language or code prompts.",
+      "is_new": true
+    },
+    {
+      "name": "khazix-skills",
+      "url": "https://github.com/KKKKhazix/khazix-skills",
+      "description": "数字生命卡兹克开源的 AI Skills 合集",
+      "stars": 6128,
+      "forks": 1033,
+      "language": "Python",
+      "topics": [],
+      "age_days": 20,
+      "stars_per_day": 306.4,
+      "velocity_7d": null,
+      "velocity_trend": "—",
+      "signal": "SOLID",
+      "summary": "Khazix-skills is an open-source collection of AI skills, likely intended for a personal AI agent platform, drawing parallels to the broader 'Digital Life 1.0' concept of digital employees or companions.",
+      "is_new": true
+    },
+    {
+      "name": "fireworks-tech-graph",
+      "url": "https://github.com/yizhiyanhua-ai/fireworks-tech-graph",
+      "description": "Claude Code skill for generating production-quality SVG+PNG technical diagrams. Supports 8 diagram types, 5 visual styles, and deep AI/Agent domain knowledge.",
+      "stars": 4622,
+      "forks": 414,
+      "language": "Python",
+      "topics": [],
+      "age_days": 16,
+      "stars_per_day": 288.9,
+      "velocity_7d": null,
+      "velocity_trend": "—",
+      "signal": "SOLID",
+      "summary": "This is a Claude Code skill dedicated to generating production-quality SVG and PNG technical diagrams. It supports 8 diagram types, 5 visual styles, and incorporates deep AI/Agent domain knowledge for highly accurate representations.",
+      "is_new": true
+    }
+  ],
+  "history": {
+    "autoresearch": {
+      "2026-04-26": 76847,
+      "2026-04-25": 76513
+    },
+    "mempalace": {
+      "2026-04-26": 49806,
+      "2026-04-25": 49605
+    },
+    "caveman": {
+      "2026-04-26": 47143,
+      "2026-04-25": 46298
+    },
+    "graphify": {
+      "2026-04-26": 35489,
+      "2026-04-25": 34643
+    },
+    "CLI-Anything": {
+      "2026-04-26": 32668,
+      "2026-04-25": 32564
+    },
+    "colleague-skill": {
+      "2026-04-26": 16658,
+      "2026-04-25": 16568
+    },
+    "nuwa-skill": {
+      "2026-04-26": 14914,
+      "2026-04-25": 14601
+    },
+    "code-review-graph": {
+      "2026-04-26": 13260,
+      "2026-04-25": 13073
+    },
+    "AutoResearchClaw": {
+      "2026-04-26": 11676,
+      "2026-04-25": 11626
+    },
+    "OpenHarness": {
+      "2026-04-26": 11292,
+      "2026-04-25": 11195
+    },
+    "OpenMythos": {
+      "2026-04-26": 10638,
+      "2026-04-25": 10291
+    },
+    "Auto-claude-code-research-in-sleep": {
+      "2026-04-26": 7551,
+      "2026-04-25": 7492
+    },
+    "browser-harness": {
+      "2026-04-26": 7155,
+      "2026-04-25": 6725
+    },
+    "turboquant_plus": {
+      "2026-04-26": 6568,
+      "2026-04-25": 6534
+    },
+    "khazix-skills": {
+      "2026-04-26": 6128,
+      "2026-04-25": 6064
+    },
+    "OpenSpace": {
+      "2026-04-26": 5733,
+      "2026-04-25": 5702
+    },
+    "ai-agent-deep-dive": {
+      "2026-04-26": 5612,
+      "2026-04-25": 5606
+    },
+    "tg-ws-proxy": {
+      "2026-04-26": 5539,
+      "2026-04-25": 5492
+    },
+    "ai-engineering-from-scratch": {
+      "2026-04-26": 5280,
+      "2026-04-25": 4976
+    },
+    "OBLITERATUS": {
+      "2026-04-26": 5144,
+      "2026-04-25": 5112
+    },
+    "awesome-gpt-image-2-prompts": {
+      "2026-04-26": 5135
+    },
+    "OpenClaw-RL": {
+      "2026-04-26": 5130,
+      "2026-04-25": 5130
+    },
+    "ClawTeam": {
+      "2026-04-26": 4991,
+      "2026-04-25": 4971
+    },
+    "ex-skill": {
+      "2026-04-26": 4816,
+      "2026-04-25": 4794
+    },
+    "video-use": {
+      "2026-04-26": 4813,
+      "2026-04-25": 4513
+    },
+    "lingbot-map": {
+      "2026-04-26": 4695,
+      "2026-04-25": 4564
+    },
+    "fireworks-tech-graph": {
+      "2026-04-26": 4622,
+      "2026-04-25": 4387
+    },
+    "hermes-webui": {
+      "2026-04-26": 4376
+    },
+    "OmniVoice": {
+      "2026-04-26": 4328,
+      "2026-04-25": 4270
+    },
+    "autoagent": {
+      "2026-04-26": 4312,
+      "2026-04-25": 4306
+    },
+    "CorridorKey": {
+      "2026-04-25": 11380
+    },
+    "Anthropic-Cybersecurity-Skills": {
+      "2026-04-25": 5714
+    }
+  }
+}

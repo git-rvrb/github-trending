@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Trending Dashboard</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #0c0c0e;
+            --panel-bg: #131316;
+            --panel-bg-hover: #18181c;
+            --border-color: #1e1e24;
+            --border-subtle: #16161a;
+            --text-main: #b8b8c0;
+            --text-bright: #dcdce4;
+            --text-muted: #5c5c68;
+            
+            --fire-color: #c45c6a;
+            --solid-color: #8a8a96;
+            --hype-color: #8b7aac;
+            --accent-color: #7a8ba8;
+            --new-color: #6a9a7a;
+            
+            --font-main: 'Inter', -apple-system, sans-serif;
+            --font-mono: 'IBM Plex Mono', 'Consolas', monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 48px 24px;
+        }
+
+        /* ── Header ── */
+        header {
+            margin-bottom: 48px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        header h1 {
+            font-family: var(--font-mono);
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        header .title-main {
+            font-family: var(--font-main);
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--text-bright);
+            letter-spacing: -0.5px;
+        }
+
+        header .subtitle {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+
+        /* ── Stats Strip ── */
+        .stats-strip {
+            display: flex;
+            gap: 1px;
+            margin-bottom: 32px;
+            background: var(--border-color);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .stat-cell {
+            flex: 1;
+            background: var(--panel-bg);
+            padding: 16px 20px;
+            text-align: center;
+        }
+
+        .stat-cell:first-child { border-radius: 6px 0 0 6px; }
+        .stat-cell:last-child { border-radius: 0 6px 6px 0; }
+
+        .stat-cell .label {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .stat-cell .value {
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--text-bright);
+        }
+
+        .stat-cell .value .unit {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        /* ── Signal Legend ── */
+        .legend {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 20px;
+            padding: 12px 0;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.75rem;
+            font-family: var(--font-mono);
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .legend-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 2px;
+        }
+
+        /* ── Chart Section ── */
+        .chart-section {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+
+        .chart-section .section-title {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 220px;
+            width: 100%;
+        }
+
+        /* ── Leaderboard ── */
+        .leaderboard {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .leaderboard .section-header {
+            padding: 20px 24px 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .leaderboard .section-title {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+        }
+
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th {
+            font-family: var(--font-mono);
+            color: var(--text-muted);
+            font-weight: 400;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border-subtle);
+            font-size: 0.9rem;
+        }
+
+        tr:last-child td { border-bottom: none; }
+
+        /* ── Table Rows ── */
+        tr.repo-row {
+            cursor: pointer;
+            transition: background-color 0.12s ease;
+        }
+
+        tr.repo-row:hover td {
+            background-color: var(--panel-bg-hover);
+        }
+
+        tr.repo-row.expanded td {
+            background-color: var(--panel-bg-hover);
+            border-bottom-color: transparent;
+        }
+
+        /* Row index */
+        .row-idx {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .expand-icon {
+            display: inline-block;
+            transition: transform 0.15s ease;
+            font-size: 0.55rem;
+            color: var(--text-muted);
+            opacity: 0.5;
+        }
+
+        tr.repo-row:hover .expand-icon { opacity: 1; }
+        tr.repo-row.expanded .expand-icon {
+            transform: rotate(90deg);
+            opacity: 1;
+        }
+
+        /* Repo cell */
+        .repo-name {
+            font-weight: 500;
+            color: var(--text-bright);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .repo-desc {
+            color: var(--text-muted);
+            font-size: 0.78rem;
+            margin-top: 3px;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Mono data cells */
+        .mono-cell {
+            font-family: var(--font-mono);
+            font-size: 0.82rem;
+            color: var(--text-main);
+            white-space: nowrap;
+        }
+
+        .mono-cell.dim { color: var(--text-muted); }
+
+        /* ── Badges ── */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge.fire { 
+            background: rgba(196, 92, 106, 0.1); 
+            color: var(--fire-color); 
+            border: 1px solid rgba(196, 92, 106, 0.2); 
+        }
+        .badge.solid { 
+            background: rgba(138, 138, 150, 0.08); 
+            color: var(--solid-color); 
+            border: 1px solid rgba(138, 138, 150, 0.15); 
+        }
+        .badge.hype { 
+            background: rgba(139, 122, 172, 0.1); 
+            color: var(--hype-color); 
+            border: 1px solid rgba(139, 122, 172, 0.2); 
+        }
+        .badge.new { 
+            background: rgba(106, 154, 122, 0.1); 
+            color: var(--new-color); 
+            border: 1px solid rgba(106, 154, 122, 0.2); 
+        }
+
+        /* ── Expanded Detail Row ── */
+        tr.detail-row {
+            display: none;
+        }
+
+        tr.detail-row.visible {
+            display: table-row;
+        }
+
+        tr.detail-row td {
+            padding: 0 16px 16px 16px;
+            background-color: var(--panel-bg-hover);
+        }
+
+        .detail-card {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 20px;
+            animation: fadeIn 0.2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-4px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .detail-card .ai-label {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .detail-card .ai-summary {
+            font-size: 0.88rem;
+            line-height: 1.7;
+            color: var(--text-main);
+            margin-bottom: 16px;
+        }
+
+        .detail-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .meta-chip {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            padding: 3px 10px;
+            border-radius: 3px;
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-muted);
+            border: 1px solid var(--border-color);
+        }
+
+        .topic-chip {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            padding: 2px 8px;
+            border-radius: 3px;
+            background: rgba(122, 139, 168, 0.06);
+            color: var(--accent-color);
+            border: 1px solid rgba(122, 139, 168, 0.12);
+        }
+
+        .detail-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 14px;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.12s ease;
+        }
+
+        .detail-link:hover {
+            color: var(--text-bright);
+        }
+
+        /* ── Velocity colors ── */
+        .vel-positive { color: var(--new-color); }
+        .vel-neutral { color: var(--text-muted); }
+
+        /* ── Footer ── */
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+        }
+
+        /* ── Scrollbar ── */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .stats-strip { flex-direction: column; }
+            .legend { flex-wrap: wrap; gap: 12px; }
+            header .title-main { font-size: 1.4rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>github // trending</h1>
+        <div class="title-main" id="title-main">Loading...</div>
+        <div class="subtitle" id="date-subtitle">—</div>
+    </header>
+
+    <div class="stats-strip" id="stats-strip">
+        <div class="stat-cell">
+            <div class="label">Tracked</div>
+            <div class="value" id="stat-repos">-</div>
+        </div>
+        <div class="stat-cell">
+            <div class="label">New This Week</div>
+            <div class="value" id="stat-new">-</div>
+        </div>
+        <div class="stat-cell">
+            <div class="label">Fire</div>
+            <div class="value" id="stat-fire">-</div>
+        </div>
+        <div class="stat-cell">
+            <div class="label">Top Velocity</div>
+            <div class="value" id="stat-top-vel">-<span class="unit"> /d</span></div>
+        </div>
+    </div>
+
+    <!-- Velocity Bar Chart -->
+    <div class="chart-section">
+        <div class="section-title">Stars / Day — Top 10</div>
+        <div class="chart-container">
+            <canvas id="barChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Signal Legend -->
+    <div class="legend">
+        <div class="legend-item">
+            <div class="legend-dot" style="background: var(--fire-color);"></div>
+            Fire — genuinely innovative
+        </div>
+        <div class="legend-item">
+            <div class="legend-dot" style="background: var(--solid-color);"></div>
+            Solid — useful utility
+        </div>
+        <div class="legend-item">
+            <div class="legend-dot" style="background: var(--hype-color);"></div>
+            Hype — riding a trend
+        </div>
+    </div>
+
+    <!-- Leaderboard -->
+    <div class="leaderboard">
+        <div class="section-header">
+            <div class="section-title">Leaderboard — Click any row for AI analysis</div>
+        </div>
+        <div class="table-container">
+            <table id="leaderboard">
+                <thead>
+                    <tr>
+                        <th style="width: 50px;">#</th>
+                        <th>Project</th>
+                        <th>Age</th>
+                        <th>Stars</th>
+                        <th>Stars/d</th>
+                        <th>7d</th>
+                        <th>Signal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- JS Populated -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer id="footer">—</footer>
+</div>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    Chart.defaults.color = '#5c5c68';
+    Chart.defaults.font.family = "'IBM Plex Mono', monospace";
+    Chart.defaults.font.size = 11;
+
+    const signalColors = {
+        'FIRE': '#c45c6a',
+        'SOLID': '#8a8a96',
+        'HYPE': '#8b7aac',
+        '—': '#5c5c68'
+    };
+
+    async function loadDashboard() {
+        try {
+            const res = await fetch('data.json?v=' + Date.now());
+            const data = await res.json();
+            renderDashboard(data);
+        } catch (e) {
+            console.error(e);
+            document.getElementById('title-main').innerText = 'Failed to load data';
+            document.getElementById('date-subtitle').innerText = 'Ensure the pipeline has generated data.json';
+        }
+    }
+
+    function renderDashboard(data) {
+        document.getElementById('title-main').innerText = `${data.week}`;
+        document.getElementById('date-subtitle').innerText = `snapshot: ${data.last_updated}`;
+
+        let fireCount = 0;
+        let topVel = 0;
+        data.repos.forEach(r => {
+            if (r.signal === 'FIRE') fireCount++;
+            if (r.stars_per_day > topVel) topVel = r.stars_per_day;
+        });
+
+        document.getElementById('stat-repos').innerText = data.repos.length;
+        document.getElementById('stat-new').innerText = data.new_repos_count;
+        document.getElementById('stat-fire').innerText = fireCount;
+        document.getElementById('stat-top-vel').innerHTML = Math.round(topVel).toLocaleString() + '<span class="unit"> /d</span>';
+        document.getElementById('footer').innerText = `generated ${data.last_updated} · github api + gemini ai · auto-pipeline`;
+
+        initBarChart(data.repos);
+        initTable(data.repos);
+    }
+
+    function initBarChart(repos) {
+        const ctx = document.getElementById('barChart').getContext('2d');
+
+        const sorted = [...repos].sort((a, b) => {
+            const va = a.velocity_7d || a.stars_per_day * 7;
+            const vb = b.velocity_7d || b.stars_per_day * 7;
+            return vb - va;
+        }).slice(0, 10);
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: sorted.map(r => r.name),
+                datasets: [{
+                    label: 'Stars/Day',
+                    data: sorted.map(r => Math.round(r.stars_per_day)),
+                    backgroundColor: sorted.map(r => {
+                        const c = signalColors[r.signal] || signalColors['—'];
+                        return c + '44';
+                    }),
+                    borderColor: sorted.map(r => signalColors[r.signal] || signalColors['—']),
+                    borderWidth: 1,
+                    borderRadius: 2,
+                    barPercentage: 0.7
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: '#131316',
+                        borderColor: '#1e1e24',
+                        borderWidth: 1,
+                        titleFont: { family: "'IBM Plex Mono', monospace", size: 12 },
+                        bodyFont: { family: "'IBM Plex Mono', monospace", size: 11 },
+                        padding: 10,
+                        displayColors: false,
+                        callbacks: {
+                            label: (ctx) => `${ctx.parsed.y.toLocaleString()} stars/day`
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: { display: false },
+                        ticks: { font: { size: 10 }, maxRotation: 45 }
+                    },
+                    y: {
+                        grid: { color: '#1e1e24' },
+                        ticks: { font: { size: 10 } }
+                    }
+                }
+            }
+        });
+    }
+
+    function initTable(repos) {
+        const tbody = document.querySelector('#leaderboard tbody');
+        tbody.innerHTML = '';
+
+        repos.forEach((r, idx) => {
+            // ── Main row ──
+            const tr = document.createElement('tr');
+            tr.className = 'repo-row';
+            tr.dataset.index = idx;
+
+            const badgeClass = r.signal === '—' ? '' : r.signal.toLowerCase();
+            const signalBadge = r.signal !== '—'
+                ? `<span class="badge ${badgeClass}">${r.signal}</span>`
+                : '';
+            const newBadge = r.is_new
+                ? `<span class="badge new">new</span>`
+                : '';
+
+            const starsPerDay = Math.round(r.stars_per_day).toLocaleString();
+            const vel7d = r.velocity_7d ? `+${r.velocity_7d.toLocaleString()}` : '—';
+            const velClass = r.velocity_7d ? 'vel-positive' : 'vel-neutral';
+
+            tr.innerHTML = `
+                <td>
+                    <span class="row-idx">
+                        <span class="expand-icon">▶</span>
+                        ${idx + 1}
+                    </span>
+                </td>
+                <td>
+                    <span class="repo-name">${r.name} ${newBadge}</span>
+                    <div class="repo-desc">${r.description || ''}</div>
+                </td>
+                <td class="mono-cell dim">${r.age_days}d</td>
+                <td class="mono-cell">${r.stars.toLocaleString()}</td>
+                <td class="mono-cell">${starsPerDay}</td>
+                <td class="mono-cell ${velClass}">${vel7d}</td>
+                <td>${signalBadge}</td>
+            `;
+            tbody.appendChild(tr);
+
+            // ── Detail row (hidden) ──
+            const detailTr = document.createElement('tr');
+            detailTr.className = 'detail-row';
+            detailTr.id = `detail-${idx}`;
+
+            const topicsHtml = r.topics && r.topics.length > 0
+                ? r.topics.map(t => `<span class="topic-chip">${t}</span>`).join('')
+                : '';
+
+            const metaChips = [
+                `<span class="meta-chip">★ ${r.stars.toLocaleString()}</span>`,
+                `<span class="meta-chip">⑂ ${r.forks.toLocaleString()}</span>`,
+                `<span class="meta-chip">${r.age_days}d old</span>`,
+                `<span class="meta-chip">${starsPerDay}/d avg</span>`,
+            ];
+            if (r.velocity_7d) {
+                metaChips.push(`<span class="meta-chip">+${r.velocity_7d.toLocaleString()} 7d</span>`);
+            }
+
+            detailTr.innerHTML = `
+                <td colspan="7">
+                    <div class="detail-card">
+                        <div class="ai-label">Gemini Analysis</div>
+                        <div class="ai-summary">${r.summary || 'No analysis available.'}</div>
+                        <div class="detail-meta">
+                            ${metaChips.join('')}
+                        </div>
+                        ${topicsHtml ? `<div class="detail-meta" style="margin-top: 8px;">${topicsHtml}</div>` : ''}
+                        <a href="${r.url}" class="detail-link" target="_blank" onclick="event.stopPropagation();">
+                            ${r.url.replace('https://github.com/', '')} →
+                        </a>
+                    </div>
+                </td>
+            `;
+            tbody.appendChild(detailTr);
+
+            // ── Click handler ──
+            tr.addEventListener('click', () => {
+                const isExpanded = tr.classList.contains('expanded');
+
+                // Collapse all
+                document.querySelectorAll('tr.repo-row.expanded').forEach(row => {
+                    row.classList.remove('expanded');
+                    document.getElementById(`detail-${row.dataset.index}`).classList.remove('visible');
+                });
+
+                // Toggle
+                if (!isExpanded) {
+                    tr.classList.add('expanded');
+                    detailTr.classList.add('visible');
+                }
+            });
+        });
+    }
+
+    window.onload = loadDashboard;
+</script>
+
+</body>
+</html>

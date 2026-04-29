@@ -29,6 +29,7 @@ USE_DB = os.getenv('USE_DB', 'true').lower() == 'true'
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 REPORTS_DIR = os.path.join(BASE_DIR, 'reports')
 SNAPSHOTS_DIR = os.path.join(BASE_DIR, 'data', 'snapshots')
+DASHBOARD_DIR = os.path.join(BASE_DIR, 'dashboard')
 SILVER_SQL_PATH = os.path.join(BASE_DIR, 'silver_layer.sql')
 
 TODAY = datetime.now(timezone.utc).strftime('%Y-%m-%d')
@@ -585,6 +586,69 @@ def generate_weekly_report(df, ai_results, changes):
 
 
 # ──────────────────────────────────────────────
+# 10. DASHBOARD — Export data.json for UI
+# ──────────────────────────────────────────────
+def generate_dashboard_data(df, snapshots, ai_results, changes):
+    """Generate data.json for the HTML dashboard."""
+    os.makedirs(DASHBOARD_DIR, exist_ok=True)
+    data_path = os.path.join(DASHBOARD_DIR, 'data.json')
+    
+    # Determine week number
+    week_num = datetime.now(timezone.utc).isocalendar()[1]
+    year = datetime.now(timezone.utc).year
+
+    # Lookup dict for AI output
+    ai_lookup = {r['repo_name']: r for r in ai_results}
+    
+    dashboard_data = {
+        'last_updated': TODAY,
+        'week': f"Week {week_num}, {year}",
+        'new_repos_count': len(changes.get('new', [])),
+        'repos': [],
+        'history': {}
+    }
+    
+    # Process top 15
+    for _, repo in df.head(15).iterrows():
+        name = repo['Repository_Name']
+        ai = ai_lookup.get(name, {})
+        
+        # Clean topics
+        topics = repo['Topics'].split(', ') if repo['Topics'] else []
+        
+        dashboard_data['repos'].append({
+            'name': name,
+            'url': repo['URL'],
+            'description': repo['Description'],
+            'stars': int(repo['Stars']),
+            'forks': int(repo['Forks']),
+            'language': repo['Language'],
+            'topics': topics,
+            'age_days': int(repo['Age_Days']),
+            'stars_per_day': float(repo['Stars_Per_Day']),
+            'velocity_7d': int(repo['Velocity_7d']) if pd.notna(repo.get('Velocity_7d')) else None,
+            'velocity_trend': str(repo.get('Velocity_Trend', '')),
+            'signal': ai.get('signal_rating', '—'),
+            'summary': ai.get('summary', ''),
+            'is_new': name in changes.get('new', [])
+        })
+        
+    # Collect historical star counts for sparklines
+    for snap in snapshots:
+        date = snap['date']
+        for r in snap['repos']:
+            name = r['Repository_Name']
+            if name not in dashboard_data['history']:
+                dashboard_data['history'][name] = {}
+            dashboard_data['history'][name][date] = int(r['Stars'])
+            
+    with open(data_path, 'w', encoding='utf-8') as f:
+        json.dump(dashboard_data, f, indent=2, ensure_ascii=False)
+        
+    print(f"📊 Dashboard data exported to {data_path}")
+
+
+# ──────────────────────────────────────────────
 # ORCHESTRATOR — Run the full pipeline
 # ──────────────────────────────────────────────
 def run_snapshot():
@@ -645,6 +709,9 @@ def run_report():
 
     # Step 9: Generate weekly report
     report_path = generate_weekly_report(df, ai_results, changes)
+
+    # Step 10: Generate dashboard data
+    generate_dashboard_data(df, snapshots, ai_results, changes)
 
     print("=" * 50)
     print("Pipeline complete!")
