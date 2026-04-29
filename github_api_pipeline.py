@@ -29,7 +29,7 @@ USE_DB = os.getenv('USE_DB', 'true').lower() == 'true'
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 REPORTS_DIR = os.path.join(BASE_DIR, 'reports')
 SNAPSHOTS_DIR = os.path.join(BASE_DIR, 'data', 'snapshots')
-DASHBOARD_DIR = os.path.join(BASE_DIR, 'dashboard')
+DASHBOARD_DIR = os.path.join(BASE_DIR, 'docs')
 SILVER_SQL_PATH = os.path.join(BASE_DIR, 'silver_layer.sql')
 
 TODAY = datetime.now(timezone.utc).strftime('%Y-%m-%d')

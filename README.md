@@ -51,7 +51,7 @@ An automated data pipeline that discovers emerging Python repositories on GitHub
               │
     ┌─────────▼──────────┐
     │  DASHBOARD         │
-    │  dashboard/        │
+    │  docs/        │
     │  GitHub Pages      │
     └────────────────────┘
 ```
@@ -85,7 +85,7 @@ github-trending/
 ├── reports/                      # Auto-generated weekly reports
 │   ├── YYYY-MM-DD_trending_report.md
 │   └── YYYY-MM-DD_weekly_report.md
-├── dashboard/
+├── docs/
 │   ├── index.html                # Interactive dashboard UI
 │   └── data.json                 # Dashboard data (auto-generated)
 └── README.md
@@ -180,9 +180,9 @@ USE_DB=false                 # set to true if using PostgreSQL
 2. Add `GEMINI_API_KEY` in **Settings → Secrets → Actions**
 3. The workflow runs daily at 08:00 UTC
 4. Monday = full report + AI analysis, other days = snapshot only
-5. Results auto-commit to `data/`, `reports/`, and `dashboard/`
+5. Results auto-commit to `data/`, `reports/`, and `docs/`
 
 ### Dashboard (GitHub Pages)
 1. Go to **Settings → Pages**
-2. Set source to **Deploy from a branch** → `main` → `/dashboard`
+2. Set source to **Deploy from a branch** → `main` → `/docs`
 3. Dashboard is live at `https://<username>.github.io/github-trending/`
