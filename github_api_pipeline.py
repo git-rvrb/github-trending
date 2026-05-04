@@ -312,20 +312,35 @@ def analyze_with_ai(df, changes=None):
 
     client = genai.Client(api_key=GEMINI_API_KEY)
 
-    # Determine which repos need AI analysis
-    if changes and changes['has_previous']:
-        # Only analyze new entries + repos that need re-analysis
-        repos_to_analyze = df[df['Repository_Name'].isin(changes['new'])]
-        repos_context_only = df[~df['Repository_Name'].isin(changes['new'])]
-        print(f"🤖 Analyzing {len(repos_to_analyze)} NEW repos (skipping {len(repos_context_only)} returning)")
+    # Load cached AI summaries to avoid re-analyzing repos that already have one
+    cached_summaries = set()
+    dashboard_data_path = os.path.join(DASHBOARD_DIR, 'data.json')
+    if os.path.exists(dashboard_data_path):
+        try:
+            with open(dashboard_data_path, 'r', encoding='utf-8') as f:
+                prev_data = json.load(f)
+            cached_summaries = {r['name'] for r in prev_data.get('repos', []) if r.get('summary')}
+        except Exception:
+            pass
 
-        if len(repos_to_analyze) == 0:
-            print("   No new repos to analyze — generating brief update summaries")
-            # Still generate a brief analysis for the full list
-            repos_to_analyze = df.head(15)
+    # Determine which repos need AI analysis
+    top_repos = df.head(15)
+    if changes and changes['has_previous'] and cached_summaries:
+        # Analyze new repos + any returning repo that's missing a cached summary
+        needs_analysis = top_repos[
+            top_repos['Repository_Name'].isin(changes['new']) |
+            ~top_repos['Repository_Name'].isin(cached_summaries)
+        ]
+        skipped = len(top_repos) - len(needs_analysis)
+        print(f"🤖 Analyzing {len(needs_analysis)} repos ({len(changes['new'])} new + {len(needs_analysis) - len(changes['new'])} missing cache), skipping {skipped} cached")
+
+        if len(needs_analysis) == 0:
+            print("   All repos have cached summaries — no AI calls needed")
+            return []
+        repos_to_analyze = needs_analysis
     else:
-        repos_to_analyze = df.head(15)
-        print(f"🤖 Analyzing all {len(repos_to_analyze)} repos (first run or no history)")
+        repos_to_analyze = top_repos
+        print(f"🤖 Analyzing all {len(repos_to_analyze)} repos (first run or no cache)")
 
     # Build prompt
     repos_context = ""
@@ -456,8 +471,26 @@ def generate_weekly_report(df, ai_results, changes):
 
     top_15 = df.head(15)
 
-    # Build the AI lookup by repo name
-    ai_lookup = {r['repo_name']: r for r in ai_results}
+    # Build the AI lookup by repo name — carry forward cached summaries
+    prev_ai_lookup = {}
+    dashboard_data_path = os.path.join(DASHBOARD_DIR, 'data.json')
+    if os.path.exists(dashboard_data_path):
+        try:
+            with open(dashboard_data_path, 'r', encoding='utf-8') as f:
+                prev_data = json.load(f)
+            for r in prev_data.get('repos', []):
+                if r.get('summary'):
+                    prev_ai_lookup[r['name']] = {
+                        'repo_name': r['name'],
+                        'summary': r['summary'],
+                        'signal_rating': r.get('signal', '—'),
+                        'verdict': '',
+                        'growth_note': '',
+                    }
+        except Exception:
+            pass
+
+    ai_lookup = {**prev_ai_lookup, **{r['repo_name']: r for r in ai_results}}
 
     lines = []
 
@@ -597,8 +630,24 @@ def generate_dashboard_data(df, snapshots, ai_results, changes):
     week_num = datetime.now(timezone.utc).isocalendar()[1]
     year = datetime.now(timezone.utc).year
 
-    # Lookup dict for AI output
-    ai_lookup = {r['repo_name']: r for r in ai_results}
+    # Load previous dashboard data to carry forward cached AI summaries
+    prev_ai_lookup = {}
+    if os.path.exists(data_path):
+        try:
+            with open(data_path, 'r', encoding='utf-8') as f:
+                prev_data = json.load(f)
+            for r in prev_data.get('repos', []):
+                if r.get('summary'):
+                    prev_ai_lookup[r['name']] = {
+                        'summary': r['summary'],
+                        'signal_rating': r.get('signal', '—'),
+                    }
+            print(f"📂 Loaded {len(prev_ai_lookup)} cached AI summaries from previous data.json")
+        except Exception as e:
+            print(f"⚠️  Could not load previous data.json: {e}")
+
+    # Lookup dict for AI output — current results override cached
+    ai_lookup = {**{name: data for name, data in prev_ai_lookup.items()}, **{r['repo_name']: r for r in ai_results}}
     
     dashboard_data = {
         'last_updated': TODAY,

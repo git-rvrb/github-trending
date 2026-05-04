@@ -7,8 +7,8 @@
       "name": "caveman",
       "url": "https://github.com/JuliusBrussee/caveman",
       "description": "🪨 why use many token when few token do trick — Claude Code skill that cuts 65% of tokens by talking like caveman",
-      "stars": 53317,
-      "forks": 2894,
+      "stars": 53723,
+      "forks": 2915,
       "language": "Python",
       "topics": [
         "ai",
@@ -23,19 +23,19 @@
         "tokens"
       ],
       "age_days": 30,
-      "stars_per_day": 1777.2,
-      "velocity_7d": 5786,
+      "stars_per_day": 1790.8,
+      "velocity_7d": 6192,
       "velocity_trend": "—",
-      "signal": "—",
-      "summary": "",
+      "signal": "SOLID",
+      "summary": "This project offers a prompt engineering technique for Claude LLMs that significantly reduces token count by forcing a 'caveman' communication style. It's primarily for developers and researchers aiming to optimize LLM cost and speed when working with Anthropic's models.",
       "is_new": false
     },
     {
       "name": "graphify",
       "url": "https://github.com/safishamsi/graphify",
       "description": "AI coding assistant skill (Claude Code, Codex, OpenCode, Cursor, Gemini CLI, and more). Turn any folder of code, SQL schemas, R scripts, shell scripts, docs, papers, images, or videos into a queryable knowledge graph. App code + database schema + infrastructure in one graph.",
-      "stars": 42214,
-      "forks": 4619,
+      "stars": 42601,
+      "forks": 4658,
       "language": "Python",
       "topics": [
         "antigravity",
@@ -50,36 +50,36 @@
         "skills",
         "tree-sitter"
       ],
-      "age_days": 30,
-      "stars_per_day": 1407.1,
-      "velocity_7d": 6218,
+      "age_days": 31,
+      "stars_per_day": 1374.2,
+      "velocity_7d": 6605,
       "velocity_trend": "—",
-      "signal": "—",
-      "summary": "",
+      "signal": "FIRE",
+      "summary": "Graphify is an AI coding assistant skill that transforms various codebases, schemas, and documents into a queryable knowledge graph. It targets developers and teams seeking to understand, navigate, and query complex software architectures and documentation using LLM agents.",
       "is_new": false
     },
     {
       "name": "autoresearch",
       "url": "https://github.com/karpathy/autoresearch",
       "description": "AI agents running research on single-GPU nanochat training automatically",
-      "stars": 78756,
-      "forks": 11484,
+      "stars": 78871,
+      "forks": 11502,
       "language": "Python",
       "topics": [],
       "age_days": 58,
-      "stars_per_day": 1357.9,
-      "velocity_7d": 1726,
+      "stars_per_day": 1359.8,
+      "velocity_7d": 1841,
       "velocity_trend": "—",
-      "signal": "—",
-      "summary": "",
+      "signal": "FIRE",
+      "summary": "This repository from Karpathy presents AI agents designed to automate the research process, specifically focused on training nanochat models on a single GPU. It's for researchers and developers in the AI/ML space looking to accelerate experimental cycles and automate model development.",
       "is_new": false
     },
     {
       "name": "mempalace",
       "url": "https://github.com/MemPalace/mempalace",
       "description": "The best-benchmarked open-source AI memory system. And it's free.",
-      "stars": 51026,
-      "forks": 6710,
+      "stars": 51102,
+      "forks": 6715,
       "language": "Python",
       "topics": [
         "ai",
@@ -90,99 +90,99 @@
         "python"
       ],
       "age_days": 29,
-      "stars_per_day": 1759.5,
-      "velocity_7d": 1110,
+      "stars_per_day": 1762.1,
+      "velocity_7d": 1186,
       "velocity_trend": "—",
-      "signal": "—",
-      "summary": "",
+      "signal": "SOLID",
+      "summary": "Mempalace offers a 'best-benchmarked' open-source AI memory system for LLMs, aiming to provide persistent and efficient memory capabilities for AI agents. It targets developers building advanced LLM applications that require long-term context and recall.",
       "is_new": false
     },
     {
       "name": "browser-harness",
       "url": "https://github.com/browser-use/browser-harness",
       "description": "Browser Harness | Self-healing harness that enables LLMs to complete any task.",
-      "stars": 10147,
-      "forks": 930,
+      "stars": 10290,
+      "forks": 943,
       "language": "Python",
       "topics": [],
       "age_days": 17,
-      "stars_per_day": 596.9,
-      "velocity_7d": 2813,
+      "stars_per_day": 605.3,
+      "velocity_7d": 2956,
       "velocity_trend": "—",
-      "signal": "—",
-      "summary": "",
+      "signal": "SOLID",
+      "summary": "Browser Harness provides a self-healing framework that enables LLMs to interact with and complete any task within a web browser. It targets developers building autonomous agents that require reliable and robust browser automation capabilities.",
       "is_new": false
     },
     {
       "name": "nuwa-skill",
       "url": "https://github.com/alchaincyf/nuwa-skill",
       "description": "你想蒸馏的下一个员工，何必是同事。蒸馏任何人的思维方式——心智模型、决策启发式、表达DNA。Distill how anyone thinks.",
-      "stars": 17119,
-      "forks": 2713,
+      "stars": 17207,
+      "forks": 2716,
       "language": "Python",
       "topics": [],
       "age_days": 29,
-      "stars_per_day": 590.3,
-      "velocity_7d": 1748,
+      "stars_per_day": 593.3,
+      "velocity_7d": 1836,
       "velocity_trend": "—",
-      "signal": "—",
-      "summary": "",
+      "signal": "FIRE",
+      "summary": "Nuwa-skill allows for the distillation of an individual's mindset, decision heuristics, and expressive DNA into an AI 'skill' or model. This project is for users interested in creating personalized digital companions or assistants that mimic specific human thinking patterns.",
       "is_new": false
     },
     {
       "name": "CLI-Anything",
       "url": "https://github.com/HKUDS/CLI-Anything",
       "description": "\"CLI-Anything: Making ALL Software Agent-Native\" -- CLI-Hub: https://clianything.cc/",
-      "stars": 33379,
-      "forks": 3262,
+      "stars": 33419,
+      "forks": 3265,
       "language": "Python",
       "topics": [],
-      "age_days": 56,
-      "stars_per_day": 596.1,
-      "velocity_7d": 632,
+      "age_days": 57,
+      "stars_per_day": 586.3,
+      "velocity_7d": 672,
       "velocity_trend": "—",
-      "signal": "—",
-      "summary": "",
+      "signal": "SOLID",
+      "summary": "CLI-Anything aims to make 'ALL Software Agent-Native' by providing a framework to integrate any command-line interface (CLI) tool with AI agents. It targets developers who want to extend the capabilities of their AI agents to interact with existing software through CLIs.",
       "is_new": false
     },
     {
       "name": "khazix-skills",
       "url": "https://github.com/KKKKhazix/khazix-skills",
       "description": "数字生命卡兹克开源的 AI Skills 合集",
-      "stars": 7920,
-      "forks": 1178,
+      "stars": 7965,
+      "forks": 1181,
       "language": "Python",
       "topics": [],
       "age_days": 28,
-      "stars_per_day": 282.9,
-      "velocity_7d": 1753,
+      "stars_per_day": 284.5,
+      "velocity_7d": 1798,
       "velocity_trend": "—",
-      "signal": "—",
-      "summary": "",
+      "signal": "HYPE",
+      "summary": "This repository provides an open-source collection of AI skills, intended for use with autonomous agents. It's for developers building AI agents who need a library of pre-defined capabilities to integrate into their projects.",
       "is_new": false
     },
     {
       "name": "video-use",
       "url": "https://github.com/browser-use/video-use",
       "description": "Edit videos with coding agents",
-      "stars": 6189,
-      "forks": 874,
+      "stars": 6222,
+      "forks": 882,
       "language": "Python",
       "topics": [],
       "age_days": 22,
-      "stars_per_day": 281.3,
-      "velocity_7d": 1276,
+      "stars_per_day": 282.8,
+      "velocity_7d": 1309,
       "velocity_trend": "—",
-      "signal": "FIRE",
-      "summary": "This project allows users to edit videos using AI agents, essentially controlling video manipulation through code. It's aimed at developers and potentially content creators who want a programmatic approach to video editing.",
+      "signal": "SOLID",
+      "summary": "Video-use enables users to edit videos using coding agents, automating complex video editing tasks through programmatic interfaces controlled by AI. This project targets developers and creators who want to streamline their video production workflows.",
       "is_new": true
     },
     {
       "name": "OpenMythos",
       "url": "https://github.com/kyegomez/OpenMythos",
       "description": "A theoretical reconstruction of the Claude Mythos architecture, built from first principles using the available research literature.",
-      "stars": 11619,
-      "forks": 2643,
+      "stars": 11665,
+      "forks": 2654,
       "language": "Python",
       "topics": [
         "ai",
@@ -204,36 +204,36 @@
         "sonnet",
         "torch"
       ],
-      "age_days": 15,
-      "stars_per_day": 774.6,
-      "velocity_7d": 863,
+      "age_days": 16,
+      "stars_per_day": 729.1,
+      "velocity_7d": 909,
       "velocity_trend": "—",
-      "signal": "—",
-      "summary": "",
+      "signal": "FIRE",
+      "summary": "OpenMythos is a theoretical reconstruction of Anthropic's Claude Mythos architecture, built from first principles using available research literature. It's for researchers and advanced practitioners interested in understanding and potentially replicating cutting-edge LLM architectures.",
       "is_new": false
     },
     {
       "name": "colleague-skill",
       "url": "https://github.com/titanwings/colleague-skill",
       "description": "将冰冷的离别化为温暖的 Skill，欢迎加入数字生命1.0！Transforming cold farewells into warm skills? It's giving rebirth era. Welcome to Digital Life 1.0. 🫶",
-      "stars": 17243,
-      "forks": 1743,
+      "stars": 17256,
+      "forks": 1742,
       "language": "Python",
       "topics": [],
       "age_days": 35,
-      "stars_per_day": 492.7,
-      "velocity_7d": 499,
+      "stars_per_day": 493.0,
+      "velocity_7d": 512,
       "velocity_trend": "—",
-      "signal": "—",
-      "summary": "",
+      "signal": "HYPE",
+      "summary": "Colleague-skill aims to 'transform cold farewells into warm skills,' implying the distillation of a departing colleague's essence or expertise into a digital form. It targets organizations or individuals seeking to retain institutional knowledge and individual expertise in a digital, agent-native format.",
       "is_new": false
     },
     {
       "name": "hermes-webui",
       "url": "https://github.com/nesquena/hermes-webui",
       "description": "Hermes WebUI: The best way to use Hermes Agent from the web or from your phone!",
-      "stars": 5584,
-      "forks": 707,
+      "stars": 5632,
+      "forks": 711,
       "language": "Python",
       "topics": [
         "agent",
@@ -243,19 +243,19 @@
         "nous-research"
       ],
       "age_days": 34,
-      "stars_per_day": 164.2,
-      "velocity_7d": 1087,
+      "stars_per_day": 165.6,
+      "velocity_7d": 1135,
       "velocity_trend": "—",
       "signal": "SOLID",
-      "summary": "Hermes WebUI provides a user-friendly interface for interacting with the Hermes Agent, making AI agent functionality accessible via web and mobile platforms. It's designed for anyone wanting to leverage advanced AI agents without complex setup.",
+      "summary": "Hermes WebUI provides a user-friendly web and mobile interface for interacting with the Hermes Agent. It's designed for end-users and developers who need an accessible way to deploy and utilize Hermes Agent functionalities without deep technical interaction.",
       "is_new": true
     },
     {
       "name": "ai-engineering-from-scratch",
       "url": "https://github.com/rohitg00/ai-engineering-from-scratch",
       "description": "Learn it. Build it. Ship it for others.",
-      "stars": 6307,
-      "forks": 1313,
+      "stars": 6344,
+      "forks": 1321,
       "language": "Python",
       "topics": [
         "agents",
@@ -279,50 +279,50 @@
         "tutorial",
         "typescript"
       ],
-      "age_days": 46,
-      "stars_per_day": 137.1,
-      "velocity_7d": 946,
+      "age_days": 47,
+      "stars_per_day": 135.0,
+      "velocity_7d": 983,
       "velocity_trend": "—",
       "signal": "SOLID",
-      "summary": "This repository aims to guide users through building AI systems from the ground up, emphasizing practical application and deployment. It's for aspiring AI engineers and practitioners who want a comprehensive learning resource.",
+      "summary": "This repository offers a comprehensive course or tutorial on AI engineering, covering fundamental concepts from scratch across various AI domains. It targets aspiring AI engineers, developers, and students who want to learn how to build, deploy, and ship AI systems.",
       "is_new": true
     },
     {
       "name": "lingbot-map",
       "url": "https://github.com/Robbyant/lingbot-map",
       "description": "A feed-forward 3D foundation model for reconstructing scenes from streaming data",
-      "stars": 5693,
-      "forks": 536,
+      "stars": 5728,
+      "forks": 539,
       "language": "Python",
       "topics": [],
-      "age_days": 18,
-      "stars_per_day": 316.3,
-      "velocity_7d": 869,
+      "age_days": 19,
+      "stars_per_day": 301.5,
+      "velocity_7d": 904,
       "velocity_trend": "—",
       "signal": "FIRE",
-      "summary": "Lingbot-map introduces a novel 3D foundation model for scene reconstruction from streaming data. This is primarily for researchers and developers working in computer vision, robotics, and spatial computing.",
+      "summary": "Lingbot-map introduces a feed-forward 3D foundation model designed for reconstructing dynamic scenes from streaming data. This project targets researchers and engineers in robotics, computer vision, and augmented reality focused on real-time 3D environment understanding.",
       "is_new": true
     },
     {
       "name": "OpenHarness",
       "url": "https://github.com/HKUDS/OpenHarness",
       "description": "\"OpenHarness: Open Agent Harness with a Built-in Personal Agent--Ohmo!\"",
-      "stars": 11836,
-      "forks": 1988,
+      "stars": 11870,
+      "forks": 1994,
       "language": "Python",
       "topics": [],
-      "age_days": 32,
-      "stars_per_day": 369.9,
-      "velocity_7d": 478,
+      "age_days": 33,
+      "stars_per_day": 359.7,
+      "velocity_7d": 512,
       "velocity_trend": "—",
-      "signal": "—",
-      "summary": "",
+      "signal": "SOLID",
+      "summary": "OpenHarness is an open agent harness featuring a built-in personal agent named Ohmo. It provides a robust framework for developing and integrating AI agents, targeting developers who need a customizable environment for their autonomous AI creations.",
       "is_new": false
     }
   ],
   "history": {
     "autoresearch": {
-      "2026-05-04": 78756,
+      "2026-05-04": 78871,
       "2026-05-03": 78563,
       "2026-05-02": 78394,
       "2026-05-01": 78210,
@@ -334,7 +334,7 @@
       "2026-04-25": 76513
     },
     "caveman": {
-      "2026-05-04": 53317,
+      "2026-05-04": 53723,
       "2026-05-03": 52673,
       "2026-05-02": 52188,
       "2026-05-01": 51590,
@@ -346,7 +346,7 @@
       "2026-04-25": 46298
     },
     "mempalace": {
-      "2026-05-04": 51026,
+      "2026-05-04": 51102,
       "2026-05-03": 50811,
       "2026-05-02": 50708,
       "2026-05-01": 50585,
@@ -358,7 +358,7 @@
       "2026-04-25": 49605
     },
     "graphify": {
-      "2026-05-04": 42214,
+      "2026-05-04": 42601,
       "2026-05-03": 41089,
       "2026-05-02": 40190,
       "2026-05-01": 39278,
@@ -370,7 +370,7 @@
       "2026-04-25": 34643
     },
     "CLI-Anything": {
-      "2026-05-04": 33379,
+      "2026-05-04": 33419,
       "2026-05-03": 33269,
       "2026-05-02": 33186,
       "2026-05-01": 33142,
@@ -382,7 +382,7 @@
       "2026-04-25": 32564
     },
     "colleague-skill": {
-      "2026-05-04": 17243,
+      "2026-05-04": 17256,
       "2026-05-03": 17170,
       "2026-05-02": 17123,
       "2026-05-01": 17083,
@@ -394,7 +394,7 @@
       "2026-04-25": 16568
     },
     "nuwa-skill": {
-      "2026-05-04": 17119,
+      "2026-05-04": 17207,
       "2026-05-03": 16942,
       "2026-05-02": 16775,
       "2026-05-01": 16625,
@@ -406,11 +406,11 @@
       "2026-04-25": 14601
     },
     "awesome-gpt-image-2-API-and-Prompts": {
-      "2026-05-04": 11955,
+      "2026-05-04": 12072,
       "2026-05-03": 11627
     },
     "AutoResearchClaw": {
-      "2026-05-04": 11901,
+      "2026-05-04": 11914,
       "2026-05-03": 11883,
       "2026-05-02": 11866,
       "2026-05-01": 11848,
@@ -422,7 +422,7 @@
       "2026-04-25": 11626
     },
     "OpenHarness": {
-      "2026-05-04": 11836,
+      "2026-05-04": 11870,
       "2026-05-03": 11776,
       "2026-05-02": 11727,
       "2026-05-01": 11670,
@@ -434,7 +434,7 @@
       "2026-04-25": 11195
     },
     "OpenMythos": {
-      "2026-05-04": 11619,
+      "2026-05-04": 11665,
       "2026-05-03": 11493,
       "2026-05-02": 11390,
       "2026-05-01": 11300,
@@ -446,7 +446,7 @@
       "2026-04-25": 10291
     },
     "browser-harness": {
-      "2026-05-04": 10147,
+      "2026-05-04": 10290,
       "2026-05-03": 9758,
       "2026-05-02": 9349,
       "2026-05-01": 8942,
@@ -458,7 +458,7 @@
       "2026-04-25": 6725
     },
     "Auto-claude-code-research-in-sleep": {
-      "2026-05-04": 8003,
+      "2026-05-04": 8024,
       "2026-05-03": 7938,
       "2026-05-02": 7890,
       "2026-05-01": 7857,
@@ -470,7 +470,7 @@
       "2026-04-25": 7492
     },
     "khazix-skills": {
-      "2026-05-04": 7920,
+      "2026-05-04": 7965,
       "2026-05-03": 7830,
       "2026-05-02": 7741,
       "2026-05-01": 7566,
@@ -482,7 +482,7 @@
       "2026-04-25": 6064
     },
     "turboquant_plus": {
-      "2026-05-04": 6680,
+      "2026-05-04": 6684,
       "2026-05-03": 6672,
       "2026-05-02": 6658,
       "2026-05-01": 6650,
@@ -494,7 +494,7 @@
       "2026-04-25": 6534
     },
     "ai-engineering-from-scratch": {
-      "2026-05-04": 6307,
+      "2026-05-04": 6344,
       "2026-05-03": 6213,
       "2026-05-02": 6089,
       "2026-05-01": 6033,
@@ -506,7 +506,7 @@
       "2026-04-25": 4976
     },
     "video-use": {
-      "2026-05-04": 6189,
+      "2026-05-04": 6222,
       "2026-05-03": 6106,
       "2026-05-02": 6007,
       "2026-05-01": 5801,
@@ -518,7 +518,7 @@
       "2026-04-25": 4513
     },
     "OpenSpace": {
-      "2026-05-04": 6002,
+      "2026-05-04": 6009,
       "2026-05-03": 5989,
       "2026-05-02": 5974,
       "2026-05-01": 5959,
@@ -530,7 +530,7 @@
       "2026-04-25": 5702
     },
     "lingbot-map": {
-      "2026-05-04": 5693,
+      "2026-05-04": 5728,
       "2026-05-03": 5611,
       "2026-05-02": 5533,
       "2026-05-01": 5441,
@@ -542,7 +542,7 @@
       "2026-04-25": 4564
     },
     "ai-agent-deep-dive": {
-      "2026-05-04": 5651,
+      "2026-05-04": 5654,
       "2026-05-03": 5648,
       "2026-05-02": 5648,
       "2026-05-01": 5643,
@@ -554,7 +554,7 @@
       "2026-04-25": 5606
     },
     "hermes-webui": {
-      "2026-05-04": 5584,
+      "2026-05-04": 5632,
       "2026-05-03": 5445,
       "2026-05-02": 5302,
       "2026-05-01": 5182,
@@ -565,7 +565,7 @@
       "2026-04-26": 4376
     },
     "fireworks-tech-graph": {
-      "2026-05-04": 5383,
+      "2026-05-04": 5419,
       "2026-05-03": 5302,
       "2026-05-02": 5197,
       "2026-05-01": 5122,
@@ -577,7 +577,7 @@
       "2026-04-25": 4387
     },
     "ClawTeam": {
-      "2026-05-04": 5089,
+      "2026-05-04": 5094,
       "2026-05-03": 5080,
       "2026-05-02": 5070,
       "2026-05-01": 5060,
@@ -589,7 +589,7 @@
       "2026-04-25": 4971
     },
     "ex-skill": {
-      "2026-05-04": 4982,
+      "2026-05-04": 4996,
       "2026-05-03": 4973,
       "2026-05-02": 4960,
       "2026-05-01": 4945,
@@ -601,7 +601,7 @@
       "2026-04-25": 4794
     },
     "Vibe-Trading": {
-      "2026-05-04": 4872,
+      "2026-05-04": 4940,
       "2026-05-03": 4622,
       "2026-05-02": 4368,
       "2026-05-01": 4005,
@@ -609,7 +609,7 @@
       "2026-04-29": 3612
     },
     "OmniVoice": {
-      "2026-05-04": 4632,
+      "2026-05-04": 4643,
       "2026-05-03": 4609,
       "2026-05-02": 4590,
       "2026-05-01": 4548,
@@ -621,7 +621,7 @@
       "2026-04-25": 4270
     },
     "autoagent": {
-      "2026-05-04": 4375,
+      "2026-05-04": 4377,
       "2026-05-03": 4367,
       "2026-05-02": 4356,
       "2026-05-01": 4349,
@@ -633,7 +633,7 @@
       "2026-04-25": 4306
     },
     "claude-obsidian": {
-      "2026-05-04": 4132,
+      "2026-05-04": 4169,
       "2026-05-03": 4031,
       "2026-05-02": 3936,
       "2026-05-01": 3817,
@@ -643,13 +643,13 @@
       "2026-04-27": 3453
     },
     "sentrysearch": {
-      "2026-05-04": 3860,
+      "2026-05-04": 3866,
       "2026-05-03": 3751,
       "2026-04-29": 3674,
       "2026-04-28": 3404
     },
     "leak-check": {
-      "2026-05-04": 3600
+      "2026-05-04": 3604
     },
     "Shadowbroker": {
       "2026-05-03": 5622,
