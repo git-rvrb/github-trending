@@ -48,8 +48,41 @@ def extract_repos(days_back=60, min_stars=100, max_repos=30):
 
     print(f"🔍 Searching for Python repos created after {cutoff_date} with >{min_stars} stars...")
 
-    response = requests.get(api_url)
-    response.raise_for_status()
+    # Use GITHUB_TOKEN for authenticated requests (30 req/min vs 10 unauthenticated)
+    headers = {'Accept': 'application/vnd.github+json'}
+    gh_token = os.getenv('GITHUB_TOKEN')
+    if gh_token:
+        headers['Authorization'] = f'Bearer {gh_token}'
+        print("   🔑 Using authenticated GitHub API request")
+    else:
+        print("   ⚠️  No GITHUB_TOKEN found — using unauthenticated request (lower rate limit)")
+
+    # Retry with backoff for rate limit errors
+    max_retries = 3
+    for attempt in range(max_retries):
+        response = requests.get(api_url, headers=headers)
+
+        if response.status_code == 403 and 'rate limit' in response.text.lower():
+            # Check for Retry-After or X-RateLimit-Reset header
+            retry_after = response.headers.get('Retry-After')
+            reset_time = response.headers.get('X-RateLimit-Reset')
+
+            if retry_after:
+                wait = int(retry_after) + 5
+            elif reset_time:
+                wait = max(int(reset_time) - int(time.time()), 10) + 5
+            else:
+                wait = 60 * (attempt + 1)  # 60s, 120s, 180s
+
+            print(f"   ⚠️  Rate limited (attempt {attempt + 1}/{max_retries}), waiting {wait}s...")
+            time.sleep(wait)
+            continue
+
+        response.raise_for_status()
+        break
+    else:
+        response.raise_for_status()  # Raise the last error if all retries failed
+
     data = response.json()
 
     clean_repos = []
